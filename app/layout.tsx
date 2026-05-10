@@ -28,6 +28,13 @@ export const metadata: Metadata = {
   title: "Rahi's Collection · Clothes, Jewellery & Stationery in Silchar",
   description: "Silchar's beloved family boutique in Ghungoor. Sarees, kurtis, kids wear, imitation jewellery, and stationery — all under one roof.",
   metadataBase: new URL("https://rahicollections.store"),
+  verification: {
+    google: 'pUyyhMHqi3_G1clASDODqXt-_TuhXm_9',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
