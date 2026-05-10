@@ -9,7 +9,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-cream-50 pt-24 pb-16 lg:pt-32 lg:pb-24">
+    <section className="relative overflow-hidden bg-sky-50 pt-24 pb-16 lg:pt-32 lg:pb-24">
       <div className="container mx-auto px-8 lg:px-6">
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
           {/* Text Content */}
@@ -72,7 +72,7 @@ export default function Hero() {
                 variant="outline" 
                 size="lg"
                 asChild
-                className="w-full sm:w-auto rounded-full border-2 border-ink-900 text-ink-900 px-8 sm:px-10 h-14 text-base sm:text-lg font-semibold bg-transparent hover:bg-ink-900 hover:text-cream-50 transition-all"
+                className="w-full sm:w-auto rounded-full border-2 border-ink-900 text-ink-900 px-8 sm:px-10 h-14 text-base sm:text-lg font-semibold bg-transparent hover:bg-ink-900 hover:text-sky-50 transition-all"
               >
                 <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
                   <Image src="/social-icons/whatsapp.png" alt="WhatsApp" width={24} height={24} className="mr-2 object-contain shrink-0" />

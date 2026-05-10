@@ -5,7 +5,7 @@ import { MapPin, Phone, Mail, Heart } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-cream-100 border-t border-cream-200 pt-16 pb-8">
+    <footer className="bg-sky-100 border-t border-sky-200 pt-16 pb-8">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Column */}
@@ -108,7 +108,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-cream-200 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="border-t border-sky-200 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-ink-400 text-sm">
             © {new Date().getFullYear()} Rahi&apos;s Collection. All rights reserved.
           </p>
