@@ -9,14 +9,6 @@ import { Menu, X, MapPin, MessageCircle } from "lucide-react";
 import { SITE } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-
-const NAV_LINKS = [
-  { name: "Collections", href: "/collections" },
-  { name: "Lookbook", href: "/lookbook" },
-  { name: "Visit", href: "/visit" },
-  { name: "About", href: "/about" },
-];
-
 import {
   Sheet,
   SheetContent,
@@ -25,6 +17,13 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+
+const NAV_LINKS = [
+  { name: "Collections", href: "/collections" },
+  { name: "Lookbook", href: "/lookbook" },
+  { name: "Visit", href: "/visit" },
+  { name: "About", href: "/about" },
+];
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
