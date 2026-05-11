@@ -5,7 +5,12 @@ import CategoryTabs from "@/components/home/CategoryTabs";
 import { getCategoriesWithProducts } from "@/lib/sanity-queries";
 
 export default async function Home() {
-  const categories = await getCategoriesWithProducts();
+  let categories = [];
+  try {
+    categories = await getCategoriesWithProducts();
+  } catch (error) {
+    console.error("Failed to fetch categories:", error);
+  }
 
   return (
     <div className="flex flex-col min-h-screen">

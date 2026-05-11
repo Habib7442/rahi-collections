@@ -35,7 +35,7 @@ export async function getPaginatedProducts(page: number = 1, pageSize: number = 
   const end = start + pageSize;
 
   const filter = categorySlug 
-    ? `&& references(*[_type == "category" && slug.current == "${categorySlug}"][0]._id)` 
+    ? `&& references(*[_type == "category" && slug.current == $categorySlug][0]._id)` 
     : "";
 
   const query = `{
@@ -52,7 +52,7 @@ export async function getPaginatedProducts(page: number = 1, pageSize: number = 
     "total": count(*[_type == "product" ${filter}])
   }`;
 
-  return await client.fetch(query, { start, end }, {
+  return await client.fetch(query, { start, end, categorySlug: categorySlug || "" }, {
     next: { revalidate: 3600 }
   });
 }

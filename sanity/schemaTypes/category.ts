@@ -19,7 +19,17 @@ export const category = defineType({
         source: 'title',
         maxLength: 96,
       },
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) => 
+        Rule.required().custom(async (slug, context) => {
+          if (!slug?.current) return true
+          const { document, getClient } = context
+          const client = getClient({ apiVersion: '2023-01-01' })
+          const id = document?._id?.replace(/^drafts\./, '')
+          const params = { slug: slug.current, id }
+          const query = `!defined(*[_type == "category" && slug.current == $slug && _id != $id][0]._id)`
+          const isUnique = await client.fetch(query, params)
+          return isUnique || 'Slug must be unique'
+        }),
     }),
     defineField({
       name: 'description',

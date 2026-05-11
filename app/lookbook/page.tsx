@@ -64,6 +64,7 @@ export default function LookbookPage() {
                 <Link 
                   href="https://instagram.com/rahicollections" 
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-ink-900 text-white px-8 py-4 rounded-full font-bold hover:bg-ink-800 transition-colors"
                 >
                   Follow on Instagram

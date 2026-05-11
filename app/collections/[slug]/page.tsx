@@ -14,10 +14,21 @@ interface CategoryPageProps {
 export default async function CategoryPage({ params, searchParams }: CategoryPageProps) {
   const { slug } = await params;
   const sParams = await searchParams;
-  const currentPage = parseInt(sParams.page || "1");
+  const currentPage = Math.max(1, parseInt(sParams.page || "1") || 1);
   const pageSize = 20;
 
-  const { category, products, total } = await getProductsByCategory(slug, currentPage, pageSize);
+  let category = null;
+  let products = [];
+  let total = 0;
+
+  try {
+    const data = await getProductsByCategory(slug, currentPage, pageSize);
+    category = data.category;
+    products = data.products;
+    total = data.total;
+  } catch (error) {
+    console.error(`Failed to fetch category data for ${slug}:`, error);
+  }
 
   if (!category) {
     notFound();

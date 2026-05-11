@@ -14,20 +14,22 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
+import { Product } from "@/lib/types";
+
 interface ProductCardProps {
-  product: any;
+  product: Product;
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
 
-  const [autoplayPlugin, setAutoplayPlugin] = React.useState<any[]>([]);
-
   const allImages = [
     ...(product.images || []),
     ...(product.rawImage ? [product.rawImage] : []),
   ];
+
+  if (allImages.length === 0) return null;
 
   const mainImage = allImages[0];
 
@@ -39,14 +41,21 @@ export default function ProductCard({ product }: ProductCardProps) {
     window.open(url, "_blank");
   };
 
+  const autoplayPlugin = React.useMemo(() => [Autoplay({ delay: 5000 })], []);
+
   React.useEffect(() => {
-    setAutoplayPlugin([Autoplay({ delay: 5000 })]);
-    
     if (!api) return;
+    
     setCurrent(api.selectedScrollSnap());
-    api.on("select", () => {
+    const onSelect = () => {
       setCurrent(api.selectedScrollSnap());
-    });
+    };
+
+    api.on("select", onSelect);
+    
+    return () => {
+      api.off("select", onSelect);
+    };
   }, [api]);
 
   return (
@@ -119,7 +128,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             Catalog Item
           </span>
           <div className="flex gap-1">
-            {product.images?.length > 1 && (
+            {product.images && product.images.length > 1 && (
               <span className="text-[10px] bg-sky-50 text-sky-600 px-2 py-0.5 rounded-full border border-sky-100">
                 +{product.images.length - 1} More
               </span>

@@ -1,13 +1,14 @@
 import { defineConfig } from 'sanity'
 import { deskTool } from 'sanity/desk'
 import { schemaTypes } from './sanity/schemaTypes'
+import { dataset, projectId } from './sanity/env'
 
 export default defineConfig({
   name: 'default',
   title: 'Rahi Collections CMS',
 
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+  projectId,
+  dataset,
 
   basePath: '/admin',
 

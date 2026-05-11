@@ -12,20 +12,31 @@ interface CollectionsPageProps {
 
 export default async function CollectionsPage({ searchParams }: CollectionsPageProps) {
   const params = await searchParams;
-  const currentPage = parseInt(params.page || "1");
+  const currentPage = Math.max(1, parseInt(params.page || "1") || 1);
   const currentCategory = params.category;
   const pageSize = 20;
 
-  const [{ products, total }, categoriesData] = await Promise.all([
-    getPaginatedProducts(currentPage, pageSize, currentCategory),
-    getAllCategories()
-  ]);
+  let products = [];
+  let total = 0;
+  let categoriesData = [];
+
+  try {
+    const [paginatedData, allCategories] = await Promise.all([
+      getPaginatedProducts(currentPage, pageSize, currentCategory),
+      getAllCategories()
+    ]);
+    products = paginatedData.products;
+    total = paginatedData.total;
+    categoriesData = allCategories;
+  } catch (error) {
+    console.error("Failed to fetch collection data:", error);
+  }
 
   // Prioritize "Ladies Wear" to be at the top
   const categories = [...categoriesData].sort((a: any, b: any) => {
     if (a.slug === 'ladies-wear') return -1;
     if (b.slug === 'ladies-wear') return 1;
-    return a.title.localeCompare(b.title);
+    return (a.title || '').localeCompare(b.title || '');
   });
 
   const totalPages = Math.ceil(total / pageSize);

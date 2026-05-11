@@ -12,20 +12,20 @@
 - [x] Fonts and Metadata configured in `layout.tsx`.
 - [x] Design tokens and colors configured in `globals.css`.
 - [x] SEO constants created in `lib/seo.ts`.
-- [x] Context files created (`project-overview`, `architecture`, `ui-context`, `code-standards`, `ai-workflow-rules`).
-- [x] Hero section designed and implemented with Framer Motion.
-- [x] Footer component implemented.
-- [x] WhatsAppFloat component implemented.
-- [x] Navigation Bar (Header) implemented with mobile drawer.
+- [x] Context files created.
+- [x] Hero, Footer, Navigation, and WhatsApp components implemented.
+- [x] **Catalog & Filtering**: Implemented category filters, sidebar navigation, and robust pagination across all collection pages.
+- [x] **Security Hardening**: Parameterized all GROQ queries, secured external links with `rel="noopener noreferrer"`, and implemented strict environment variable validation.
+- [x] **Performance Optimization**: Reduced image qualities, implemented memoization in carousels, and added error handling for all data fetches.
+- [x] **UI Refinement**: Fixed storefront image cropping, lookbook background transparency, and improved accessibility (alt text, focus outlines).
 
 ## In Progress
-- [ ] Marquee strip for categories.
-- [ ] Product category cards grid.
+- [ ] Analytics integration for WhatsApp conversion events.
+- [ ] Maps API production credentials setup.
 
 ## Next Up
-1. Setup Marquee strip on Home page.
-2. Build Category cards grid.
-3. Create "Visit Us" section with map.
+1. Implement CMS webhooks for cache revalidation.
+2. Final production build and testing.
 
 ## Open Questions
 - None.

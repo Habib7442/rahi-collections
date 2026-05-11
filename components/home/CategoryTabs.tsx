@@ -9,8 +9,10 @@ import Link from "next/link";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { Suspense } from "react";
 
+import { Category } from "@/lib/types";
+
 interface CategoryTabsProps {
-  categories: any[];
+  categories: Category[];
 }
 
 function CategoryTabsContent({ categories }: CategoryTabsProps) {
@@ -38,7 +40,10 @@ function CategoryTabsContent({ categories }: CategoryTabsProps) {
   );
 
   const defaultTab = activeCategories[0].slug;
-  const currentTab = searchParams.get("category") || defaultTab;
+  const categoryParam = searchParams.get("category");
+  const currentTab = activeCategories.some(cat => cat.slug === categoryParam) 
+    ? (categoryParam as string) 
+    : defaultTab;
 
   const handleTabChange = (value: string) => {
     const params = new URLSearchParams(searchParams.toString());
@@ -86,9 +91,9 @@ function CategoryTabsContent({ categories }: CategoryTabsProps) {
           </div>
 
           {activeCategories.map((category) => (
-            <TabsContent key={category._id} value={category.slug} className="mt-0 outline-none">
+            <TabsContent key={category._id} value={category.slug} className="mt-0">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                {category.products.map((product: any) => (
+                {category.products?.map((product) => (
                   <ProductCard key={product._id} product={product} />
                 ))}
               </div>

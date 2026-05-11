@@ -72,6 +72,7 @@ export default function VisitPage() {
                   <Link 
                     href="https://maps.google.com/?q=Rahi's+Collection+Ghungoor+Silchar" 
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-white text-ink-900 px-6 py-3 rounded-full font-bold shadow-sm hover:shadow-md transition-all border border-sky-200"
                   >
                     Open in Google Maps
@@ -94,7 +95,7 @@ export default function VisitPage() {
                           alt="Rahi's Collection Storefront - Day View" 
                           fill 
                           sizes="(max-width: 768px) 100vw, 800px"
-                          quality={100}
+                          quality={85}
                           className="object-contain p-4"
                         />
                       </div>
@@ -109,7 +110,7 @@ export default function VisitPage() {
                           alt="Rahi's Collection Storefront - Night View" 
                           fill 
                           sizes="(max-width: 768px) 100vw, 800px"
-                          quality={100}
+                          quality={85}
                           className="object-contain p-4"
                         />
                       </div>

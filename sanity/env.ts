@@ -14,7 +14,7 @@ export const projectId = assertValue(
 export const useCdn = false
 
 function assertValue<T>(v: T | undefined, errorMessage: string): T {
-  if (v === undefined) {
+  if (v === undefined || v === '') {
     throw new Error(errorMessage)
   }
 

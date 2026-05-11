@@ -92,7 +92,7 @@ export default function Hero() {
             >
               <Image
                 src="/images/hero.png"
-                alt="Rahi's Collection Exclusive"
+                alt="Elegant display of traditional sarees and designer boutique collections at Rahi's Collection"
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"

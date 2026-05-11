@@ -3,8 +3,7 @@
 import { NextStudio } from 'next-sanity/studio'
 import config from '@/sanity.config'
 
-// Force the page to only render on the client to avoid "window is not defined" errors during SSR
-export const dynamic = 'force-dynamic'
+// This page renders the Sanity Studio on the client side
 
 export default function AdminPage() {
   return (
