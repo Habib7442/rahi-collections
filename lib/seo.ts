@@ -5,15 +5,15 @@ export const SITE = {
   url: "https://rahicollections.store",
   address: "Ghungoor, Silchar 788014, Assam, India",
   phones: ["+91 87218 73064", "+91 86381 88525"],
-  whatsapp: "https://wa.me/919707370886?text=Hi%20Rahi's%20Collection!",
-  whatsappNumber: "919707370886",
+  whatsapp: "https://wa.me/918721873064?text=Hi%20Rahi's%20Collection!",
+  whatsappNumber: "918721873064",
   hours: "Mon–Sat · 10 AM – 8:30 PM",
   email: "rahiscollection.silchar@gmail.com",
   social: {
     instagram: "https://instagram.com/rahicollections",
     facebook: "https://facebook.com/rahicollections",
   },
-  ogImage: "/og-image.jpg",
+  ogImage: "/og-image.png",
   keywords: [
     "clothes shop in Silchar",
     "saree shop Silchar",
