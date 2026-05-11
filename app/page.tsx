@@ -1,15 +1,22 @@
 import Hero from "@/components/home/Hero";
 import Footer from "@/components/shared/Footer";
 import WhatsAppFloat from "@/components/shared/WhatsAppFloat";
+import CategoryTabs from "@/components/home/CategoryTabs";
+import { getCategoriesWithProducts } from "@/lib/sanity-queries";
 
-export default function Home() {
+export default async function Home() {
+  const categories = await getCategoriesWithProducts();
+
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         <Hero />
         
-        {/* Placeholder for subsequent sections */}
-        <div className="py-24 bg-white text-center">
+        {/* Dynamic Collections Section */}
+        <CategoryTabs categories={categories} />
+
+        {/* Coming Soon Section */}
+        <div className="py-24 bg-white text-center border-t border-sky-100">
           <div className="container mx-auto px-6">
             <h2 className="font-serif text-3xl lg:text-4xl text-ink-900 mb-4 italic">
               &ldquo;New collections arriving soon...&rdquo;

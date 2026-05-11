@@ -11,9 +11,9 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-sky-50 pt-24 pb-16 lg:pt-32 lg:pb-24">
       <div className="container mx-auto px-8 lg:px-6">
-        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
+        <div className="flex flex-col lg:flex-row lg:items-start items-center gap-16 lg:gap-20">
           {/* Text Content */}
-          <div className="flex-1 text-center lg:text-left z-10">
+          <div className="flex-1 text-center lg:text-left z-10 lg:mt-2">
             <motion.span
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -91,8 +91,8 @@ export default function Hero() {
               className="relative w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white"
             >
               <Image
-                src="/images/hero-shop.png"
-                alt="Rahi's Collection Shop Interior"
+                src="/images/hero.png"
+                alt="Rahi's Collection Exclusive"
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"

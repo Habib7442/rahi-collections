@@ -1,7 +1,8 @@
 import { MetadataRoute } from 'next'
+import { SITE } from '@/lib/seo'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://rahicollections.store'
+  const baseUrl = SITE.url
 
   const routes = [
     '',

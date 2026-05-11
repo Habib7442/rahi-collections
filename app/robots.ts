@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { SITE } from '@/lib/seo'
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -7,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/'],
     },
-    sitemap: 'https://rahicollections.store/sitemap.xml',
+    sitemap: `${SITE.url}/sitemap.xml`,
   }
 }
