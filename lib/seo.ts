@@ -13,7 +13,7 @@ export const SITE = {
     instagram: "https://instagram.com/rahicollections",
     facebook: "https://facebook.com/rahicollections",
   },
-  ogImage: "/og-image.png",
+  ogImage: "/og-image.jpg",
   keywords: [
     "clothes shop in Silchar",
     "saree shop Silchar",
