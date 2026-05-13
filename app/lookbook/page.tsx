@@ -3,6 +3,7 @@ import WhatsAppFloat from "@/components/shared/WhatsAppFloat";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { SITE } from "@/lib/seo";
 
 export default function LookbookPage() {
   return (
@@ -62,7 +63,7 @@ export default function LookbookPage() {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link 
-                  href="https://instagram.com/rahicollections" 
+                  href={SITE.social.instagram} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-ink-900 text-white px-8 py-4 rounded-full font-bold hover:bg-ink-800 transition-colors"

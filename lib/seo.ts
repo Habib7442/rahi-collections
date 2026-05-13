@@ -10,7 +10,7 @@ export const SITE = {
   hours: "Mon–Sat · 10 AM – 8:30 PM",
   email: "rahiscollection.silchar@gmail.com",
   social: {
-    instagram: "https://instagram.com/rahicollections",
+    instagram: "https://www.instagram.com/rahiscollection.silchar/",
     facebook: "https://facebook.com/rahicollections",
   },
   ogImage: "/og-image.jpg",
