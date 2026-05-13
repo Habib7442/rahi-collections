@@ -123,6 +123,37 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Business Card Section */}
+        <div className="mb-20">
+          <h4 className="font-serif text-xl font-semibold text-white mb-10 text-center flex items-center justify-center gap-4">
+            <span className="h-px w-12 bg-white/10"></span>
+            Digital Business Card
+            <span className="h-px w-12 bg-white/10"></span>
+          </h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="group relative aspect-[1.75/1] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/5 bg-white/5 transition-all duration-500 hover:border-rahi-red-500/30 hover:scale-[1.02]">
+              <Image 
+                src="/business_card/front.png" 
+                alt="Rahi's Collection Business Card Front" 
+                fill 
+                sizes="(max-width: 768px) 100vw, 600px"
+                className="object-contain p-2 transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </div>
+            <div className="group relative aspect-[1.75/1] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/5 bg-white/5 transition-all duration-500 hover:border-rahi-red-500/30 hover:scale-[1.02]">
+              <Image 
+                src="/business_card/back.png" 
+                alt="Rahi's Collection Business Card Back" 
+                fill 
+                sizes="(max-width: 768px) 100vw, 600px"
+                className="object-contain p-2 transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </div>
+          </div>
+        </div>
+
         {/* Bottom Bar */}
         <div className="border-t border-white/5 pt-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-sky-100/40 text-sm tracking-wide">
