@@ -14,9 +14,9 @@
   --font-accent: var(--font-caveat);
 
   /* Brand Colors */
-  --color-sky-50: #F7FAFF;
-  --color-sky-100: #EEF4FF;
-  --color-sky-200: #E0E9FA;
+  --color-cream-50: #FFFAF2;
+  --color-cream-100: #FFF4E6;
+  --color-cream-200: #F5E9D7;
 
   --color-rahi-red-500: #C92340;
   --color-rahi-red-600: #A11C33;
@@ -27,8 +27,8 @@
   --color-sage-400: #A8C4A2;
   --color-blush-300: #FFC8DD;
 
-  --color-ink-900: #121826;
-  --color-ink-600: #4B5563;
+  --color-ink-900: #1A1410;
+  --color-ink-600: #5C4F44;
   --color-ink-400: #9CA3AF;
 
   /* Shadcn Overrides */
@@ -52,23 +52,23 @@
 }
 
 :root {
-  --background: #F7FAFF; /* sky-50 */
-  --foreground: #121826; /* ink-900 refined for blue */
+  --background: #FFFAF2; /* cream-50 */
+  --foreground: #1A1410; /* ink-900 */
   
-  --card: #EEF4FF; /* sky-100 */
-  --card-foreground: #121826;
+  --card: #FFF4E6; /* cream-100 */
+  --card-foreground: #1A1410;
   
-  --popover: #F7FAFF;
-  --popover-foreground: #121826;
+  --popover: #FFFAF2;
+  --popover-foreground: #1A1410;
   
   --primary: #C92340; /* rahi-red-500 */
-  --primary-foreground: #F7FAFF;
+  --primary-foreground: #FFFAF2;
   
-  --secondary: #EEF4FF;
-  --secondary-foreground: #121826;
+  --secondary: #FFF4E6;
+  --secondary-foreground: #1A1410;
   
-  --muted: #E0E9FA; /* sky-200 */
-  --muted-foreground: #4B5563; /* ink-600 */
+  --muted: #F5E9D7; /* cream-200 */
+  --muted-foreground: #5C4F44; /* ink-600 */
   
   --accent: #FBE3E8; /* rahi-red-100 */
   --accent-foreground: #A11C33; /* rahi-red-600 */
@@ -76,11 +76,11 @@
   --destructive: #DC2626;
   --destructive-foreground: #FFFFFF;
   
-  --border: #E0E9FA;
-  --input: #E0E9FA;
+  --border: #F5E9D7;
+  --input: #F5E9D7;
   --ring: #C92340;
   
-  --radius: 0.75rem;
+  --radius: 1.5rem; /* Updated to match ui-context.md card radius */
 }
 
 @layer base {

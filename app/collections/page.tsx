@@ -5,6 +5,15 @@ import WhatsAppFloat from "@/components/shared/WhatsAppFloat";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "All Collections",
+  description: "Browse Silchar's finest collection of sarees, kurtis, gents wear, kids wear, and jewellery at Rahi's Collection.",
+  alternates: {
+    canonical: "/collections",
+  },
+};
 
 interface CollectionsPageProps {
   searchParams: Promise<{ page?: string; category?: string }>;
@@ -45,7 +54,7 @@ export default async function CollectionsPage({ searchParams }: CollectionsPageP
     <div className="flex flex-col min-h-screen pt-20">
       <main className="flex-grow pb-20">
         {/* Header */}
-        <div className="bg-sky-50 py-16 border-b border-sky-100">
+        <div className="bg-background py-16 border-b border-border">
           <div className="container mx-auto px-6">
             <h1 className="font-serif text-4xl md:text-5xl text-ink-900 mb-4">All Collections</h1>
             <p className="text-ink-600 max-w-2xl text-lg">
@@ -81,12 +90,12 @@ export default async function CollectionsPage({ searchParams }: CollectionsPageP
                   {categories.map((category: any) => (
                     <Link 
                       key={category._id}
-                      href={`/collections?category=${category.slug}`}
+                      href={`/collections/${category.slug}`}
                       className={cn(
                         "px-4 py-2 rounded-xl text-sm font-medium transition-all whitespace-nowrap",
                         currentCategory === category.slug
                           ? "bg-ink-900 text-white shadow-lg shadow-ink-900/20" 
-                          : "bg-white text-ink-600 hover:bg-sky-100 border border-sky-100"
+                          : "bg-white text-ink-600 hover:bg-cream-100 border border-border"
                       )}
                     >
                       {category.title}
@@ -144,7 +153,7 @@ export default async function CollectionsPage({ searchParams }: CollectionsPageP
                   )}
                 </>
               ) : (
-                <div className="text-center py-20 bg-sky-50 rounded-[3rem] border-2 border-dashed border-sky-200">
+                <div className="text-center py-20 bg-background rounded-[3rem] border-2 border-dashed border-border">
                   <p className="text-ink-400 text-xl font-serif italic">No products found in this selection.</p>
                   <Button asChild variant="link" className="mt-4 text-rahi-red-500">
                     <Link href="/collections">Clear all filters</Link>

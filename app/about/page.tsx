@@ -2,6 +2,15 @@ import Footer from "@/components/shared/Footer";
 import WhatsAppFloat from "@/components/shared/WhatsAppFloat";
 import Image from "next/image";
 import { SITE } from "@/lib/seo";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Our Story",
+  description: "Meet Susmita Chakraborty Deb, the founder of Rahi's Collection, and discover our philosophy of quality, craftsmanship, and family values in Silchar.",
+  alternates: {
+    canonical: "/about",
+  },
+};
 
 export default function AboutPage() {
   return (

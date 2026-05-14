@@ -29,7 +29,7 @@ export default function Footer() {
                 </span>
               </div>
             </Link>
-            <p className="text-sky-100/60 leading-relaxed text-lg font-light">
+            <p className="text-white/60 leading-relaxed text-lg font-light">
               Silchar&apos;s beloved family boutique. Curating the finest sarees, jewellery, and essentials for the modern family.
             </p>
             <div className="flex gap-4">
@@ -65,10 +65,10 @@ export default function Footer() {
               <span className="absolute -bottom-2 left-0 w-8 h-1 bg-rahi-red-500 rounded-full"></span>
             </h4>
             <ul className="flex flex-col gap-4">
-              <li><Link href="/collections" className="text-sky-100/60 hover:text-white hover:translate-x-1 transition-all inline-block">All Collections</Link></li>
-              <li><Link href="/lookbook" className="text-sky-100/60 hover:text-white hover:translate-x-1 transition-all inline-block">Festive Lookbook</Link></li>
-              <li><Link href="/visit" className="text-sky-100/60 hover:text-white hover:translate-x-1 transition-all inline-block">Visit Our Shop</Link></li>
-              <li><Link href="/about" className="text-sky-100/60 hover:text-white hover:translate-x-1 transition-all inline-block">Our Story</Link></li>
+              <li><Link href="/collections" className="text-white/60 hover:text-white hover:translate-x-1 transition-all inline-block">All Collections</Link></li>
+              <li><Link href="/lookbook" className="text-white/60 hover:text-white hover:translate-x-1 transition-all inline-block">Festive Lookbook</Link></li>
+              <li><Link href="/visit" className="text-white/60 hover:text-white hover:translate-x-1 transition-all inline-block">Visit Our Shop</Link></li>
+              <li><Link href="/about" className="text-white/60 hover:text-white hover:translate-x-1 transition-all inline-block">Our Story</Link></li>
             </ul>
           </div>
 
@@ -79,10 +79,10 @@ export default function Footer() {
               <span className="absolute -bottom-2 left-0 w-8 h-1 bg-rahi-red-500 rounded-full"></span>
             </h4>
             <ul className="flex flex-col gap-4">
-              <li><Link href="/collections/ladies-wear" className="text-sky-100/60 hover:text-white hover:translate-x-1 transition-all inline-block">Ladies Wear</Link></li>
-              <li><Link href="/collections/gents-wear" className="text-sky-100/60 hover:text-white hover:translate-x-1 transition-all inline-block">Gents Wear</Link></li>
-              <li><Link href="/collections/kids-wear" className="text-sky-100/60 hover:text-white hover:translate-x-1 transition-all inline-block">Kids Wear</Link></li>
-              <li><Link href="/collections/jewellery" className="text-sky-100/60 hover:text-white hover:translate-x-1 transition-all inline-block">Jewellery & Gifts</Link></li>
+              <li><Link href="/collections/ladies-wear" className="text-white/60 hover:text-white hover:translate-x-1 transition-all inline-block">Ladies Wear</Link></li>
+              <li><Link href="/collections/gents-wear" className="text-white/60 hover:text-white hover:translate-x-1 transition-all inline-block">Gents Wear</Link></li>
+              <li><Link href="/collections/kids-wear" className="text-white/60 hover:text-white hover:translate-x-1 transition-all inline-block">Kids Wear</Link></li>
+              <li><Link href="/collections/jewellery" className="text-white/60 hover:text-white hover:translate-x-1 transition-all inline-block">Jewellery & Gifts</Link></li>
             </ul>
           </div>
 
@@ -97,7 +97,7 @@ export default function Footer() {
                 <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-rahi-red-500/10 transition-colors">
                   <MapPin className="w-5 h-5 text-rahi-red-500" />
                 </div>
-                <span className="text-sky-100/60 text-sm leading-relaxed">{SITE.address}</span>
+                <span className="text-white/60 text-sm leading-relaxed">{SITE.address}</span>
               </li>
               <li className="flex gap-4 group">
                 <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-rahi-red-500/10 transition-colors">
@@ -105,7 +105,7 @@ export default function Footer() {
                 </div>
                 <div className="flex flex-col gap-1">
                   {SITE.phones.map(phone => (
-                    <a key={phone} href={`tel:${phone.replace(/\s/g, '')}`} className="text-sky-100/60 hover:text-white transition-colors">
+                    <a key={phone} href={`tel:${phone.replace(/\s/g, '')}`} className="text-white/60 hover:text-white transition-colors">
                       {phone}
                     </a>
                   ))}
@@ -115,7 +115,7 @@ export default function Footer() {
                 <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-rahi-red-500/10 transition-colors">
                   <Mail className="w-5 h-5 text-rahi-red-500" />
                 </div>
-                <a href={`mailto:${SITE.email}`} className="text-sky-100/60 hover:text-white transition-colors break-all">
+                <a href={`mailto:${SITE.email}`} className="text-white/60 hover:text-white transition-colors break-all">
                   {SITE.email}
                 </a>
               </li>
@@ -156,11 +156,11 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-white/5 pt-10 flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-sky-100/40 text-sm tracking-wide">
+          <p className="text-white/40 text-sm tracking-wide">
             © {new Date().getFullYear()} Rahi&apos;s Collection. All rights reserved.
           </p>
           <div className="flex items-center gap-8">
-            <p className="text-sky-100/40 text-sm flex items-center gap-2 group">
+            <p className="text-white/40 text-sm flex items-center gap-2 group">
               Made with <Heart size={14} className="text-rahi-red-500 fill-rahi-red-500 group-hover:scale-125 transition-transform" /> in Silchar
             </p>
           </div>

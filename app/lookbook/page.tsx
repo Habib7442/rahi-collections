@@ -1,9 +1,17 @@
 import Footer from "@/components/shared/Footer";
 import WhatsAppFloat from "@/components/shared/WhatsAppFloat";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { SITE } from "@/lib/seo";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Seasonal Lookbook",
+  description: "Curated styles for Silchar's most vibrant celebrations. Discover the Rahi's Collection aesthetic and latest festive trends.",
+  alternates: {
+    canonical: "/lookbook",
+  },
+};
 
 export default function LookbookPage() {
   return (

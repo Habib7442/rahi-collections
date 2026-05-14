@@ -43,7 +43,7 @@ export default function Header() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4",
         isScrolled 
-          ? "bg-white/80 backdrop-blur-lg border-b border-sky-200 py-4 lg:py-5" 
+          ? "bg-white/80 backdrop-blur-lg border-b border-border py-4 lg:py-5" 
           : "bg-transparent"
       )}
     >
@@ -117,8 +117,8 @@ export default function Header() {
                 <Menu size={28} />
               </button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-full sm:max-w-sm bg-sky-50 border-l border-sky-200 p-0">
-              <SheetHeader className="p-6 border-b border-sky-100">
+            <SheetContent side="right" className="w-full sm:max-w-sm bg-background border-l border-border p-0">
+              <SheetHeader className="p-6 border-b border-border">
                 <SheetTitle className="flex items-center gap-3">
                   <div className="relative w-8 h-8 overflow-hidden rounded-lg bg-white shadow-sm">
                     <Image 

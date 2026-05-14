@@ -32,7 +32,7 @@ function CategoryTabsContent({ categories }: CategoryTabsProps) {
     });
 
   if (activeCategories.length === 0) return (
-    <div className="text-center py-20 bg-white rounded-3xl border-2 border-dashed border-sky-100">
+    <div className="text-center py-20 bg-background rounded-3xl border-2 border-dashed border-border">
       <p className="text-ink-400 font-serif text-xl italic">
         "Our latest collections are currently being curated. Check back soon!"
       </p>
@@ -52,7 +52,7 @@ function CategoryTabsContent({ categories }: CategoryTabsProps) {
   };
 
   return (
-    <section className="py-20 bg-sky-50/50">
+    <section className="py-20 bg-background/50">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <motion.h2 
@@ -77,7 +77,7 @@ function CategoryTabsContent({ categories }: CategoryTabsProps) {
           className="w-full"
         >
           <div className="flex justify-center mb-12">
-            <TabsList className="bg-white border border-sky-200 p-1 rounded-full h-auto flex-wrap justify-center gap-2">
+            <TabsList className="bg-white border border-border p-1 rounded-full h-auto flex-wrap justify-center gap-2">
               {activeCategories.map((category) => (
                 <TabsTrigger
                   key={category._id}

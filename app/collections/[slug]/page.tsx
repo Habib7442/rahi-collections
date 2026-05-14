@@ -1,14 +1,40 @@
-import { getProductsByCategory } from "@/lib/sanity-queries";
+import { getProductsByCategory, getAllCategories } from "@/lib/sanity-queries";
 import ProductCard from "@/components/shared/ProductCard";
 import Footer from "@/components/shared/Footer";
 import WhatsAppFloat from "@/components/shared/WhatsAppFloat";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Metadata } from "next";
+import { SITE } from "@/lib/seo";
 
 interface CategoryPageProps {
   params: Promise<{ slug: string }>;
   searchParams: Promise<{ page?: string }>;
+}
+
+export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const data = await getProductsByCategory(slug);
+  
+  if (!data.category) {
+    return {
+      title: "Category Not Found",
+    };
+  }
+
+  return {
+    title: `${data.category.title} Collections`,
+    description: data.category.description || `Browse our latest collection of ${data.category.title} at ${SITE.name}. Premium quality and traditional designs.`,
+    openGraph: {
+      title: `${data.category.title} | ${SITE.name}`,
+      description: data.category.description,
+      url: `${SITE.url}/collections/${slug}`,
+    },
+    alternates: {
+      canonical: `/collections/${slug}`,
+    }
+  };
 }
 
 export default async function CategoryPage({ params, searchParams }: CategoryPageProps) {
@@ -40,7 +66,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
     <div className="flex flex-col min-h-screen pt-20">
       <main className="flex-grow pb-20">
         {/* Header */}
-        <div className="bg-sky-50 py-16 border-b border-sky-100">
+        <div className="bg-background py-16 border-b border-border">
           <div className="container mx-auto px-6">
             <Link 
               href="/collections" 

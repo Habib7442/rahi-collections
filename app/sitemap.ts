@@ -1,10 +1,12 @@
 import { MetadataRoute } from 'next'
 import { SITE } from '@/lib/seo'
+import { getAllCategories } from '@/lib/sanity-queries'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = SITE.url
 
-  const routes = [
+  // Static routes
+  const staticRoutes = [
     '',
     '/collections',
     '/lookbook',
@@ -17,5 +19,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === '' ? 1 : 0.8,
   }))
 
-  return routes
+  // Dynamic category routes
+  let categoryRoutes: any[] = []
+  try {
+    const categories = await getAllCategories()
+    categoryRoutes = categories.map((category: any) => ({
+      url: `${baseUrl}/collections/${category.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    }))
+  } catch (error) {
+    console.error('Failed to fetch categories for sitemap:', error)
+  }
+
+  return [...staticRoutes, ...categoryRoutes]
 }

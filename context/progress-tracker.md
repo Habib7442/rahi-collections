@@ -18,6 +18,9 @@
 - [x] **Security Hardening**: Parameterized all GROQ queries, secured external links with `rel="noopener noreferrer"`, and implemented strict environment variable validation.
 - [x] **Performance Optimization**: Reduced image qualities, implemented memoization in carousels, and added error handling for all data fetches.
 - [x] **UI Refinement**: Fixed storefront image cropping, lookbook background transparency, and improved accessibility (alt text, focus outlines).
+- [x] **SEO Audit Fixes**: Resolved indexing issues from the May 14 audit. Implemented dynamic sitemap categories, unique metadata for all pages, and corrected canonical URL logic.
+- [x] **UI Spec Alignment**: Migrated site theme from blue/sky to the specified cream/ink "Boutique Gen-Z" aesthetic. Updated all background and border tokens.
+- [x] **URL Unification**: Standardized category routes to use clean slug-based paths (/collections/[slug]) for improved SEO.
 
 ## In Progress
 - [ ] Analytics integration for WhatsApp conversion events.

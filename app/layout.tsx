@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   keywords: [...SITE.keywords],
   metadataBase: new URL(SITE.url),
   alternates: {
-    canonical: "/",
+    canonical: "./",
   },
   openGraph: {
     title: SITE.name,
@@ -95,7 +95,7 @@ export default function RootLayout({
     >
       <body 
         suppressHydrationWarning 
-        className="min-h-full flex flex-col bg-sky-50 text-ink-900 selection:bg-rahi-red-100 selection:text-rahi-red-600"
+        className="min-h-full flex flex-col bg-background text-foreground selection:bg-rahi-red-100 selection:text-rahi-red-600"
       >
         <Header />
         {children}

@@ -3,13 +3,22 @@ import WhatsAppFloat from "@/components/shared/WhatsAppFloat";
 import Image from "next/image";
 import Link from "next/link";
 import { SITE } from "@/lib/seo";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Visit Our Shop",
+  description: `Find Rahi's Collection in Ghungoor, Silchar. Check our opening hours, get driving directions, and see our storefront. Open Mon-Sat, 10 AM - 8:30 PM.`,
+  alternates: {
+    canonical: "/visit",
+  },
+};
 
 export default function VisitPage() {
   return (
     <div className="flex flex-col min-h-screen pt-20">
       <main className="flex-grow">
         {/* Header */}
-        <div className="bg-sky-50 py-20 border-b border-sky-100">
+        <div className="bg-background py-20 border-b border-border">
           <div className="container mx-auto px-6 text-center">
             <h1 className="font-serif text-5xl md:text-6xl text-ink-900 mb-6">Visit Our Boutique</h1>
             <p className="text-ink-600 max-w-2xl mx-auto text-xl">
