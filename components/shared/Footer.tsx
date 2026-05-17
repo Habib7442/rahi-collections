@@ -35,7 +35,6 @@ export default function Footer() {
             <div className="flex gap-4">
               {[
                 { name: 'Instagram', icon: '/social-icons/instagram.png', url: SITE.social.instagram },
-                { name: 'Facebook', icon: '/social-icons/facebook.png', url: SITE.social.facebook },
                 { name: 'WhatsApp', icon: '/social-icons/whatsapp.png', url: SITE.whatsapp }
               ].map((social) => (
                 <a 

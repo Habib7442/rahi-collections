@@ -72,20 +72,31 @@ export default function VisitPage() {
                   </div>
                 </div>
 
-                <div className="bg-sky-50 p-8 rounded-3xl border border-sky-100">
+                <div className="bg-sky-50 p-8 rounded-3xl border border-sky-100 flex flex-col">
                   <h3 className="font-serif text-2xl text-ink-900 mb-4">Driving Directions</h3>
                   <p className="text-ink-600 mb-6">
-                    Our boutique is conveniently located in Ghungoor, near Silchar Medical College. 
+                    Our boutique is conveniently located in Ghungoor, near SUBHASHINI MEDICARE. 
                     Look for the crimson red signboard of "Rahi's Collection".
                   </p>
                   <Link 
-                    href="https://maps.google.com/?q=Rahi's+Collection+Ghungoor+Silchar" 
+                    href="https://www.google.com/maps/place/SUBHASHINI+MEDICARE/@24.7716151,92.7923391,19.37z/data=!4m20!1m13!4m12!1m6!1m2!1s0x374e4f16316aaaab:0x99fea6ce904edb2!2sMadhab+Chandra+Das+College,+PV9H%2B88X,+Madhab+Chandra+Das+College,+Kabuganj+-+Sonai+Rd,+downtown,+Tulargram+Pt+II,+Assam+788119!2m2!1d92.8786065!2d24.7189414!1m3!2m2!1d92.7930333!2d24.7716418!3e9!3m5!1s0x374e491772674527:0xcd82c9e3f4a023b5!8m2!3d24.7716281!4d92.7932174!16s%2Fg%2F11gnq82gfm?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D" 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-white text-ink-900 px-6 py-3 rounded-full font-bold shadow-sm hover:shadow-md transition-all border border-sky-200"
+                    className="inline-flex items-center justify-center gap-2 bg-white text-ink-900 px-6 py-3 rounded-full font-bold shadow-sm hover:shadow-md transition-all border border-sky-200 mb-8 w-fit"
                   >
                     Open in Google Maps
                   </Link>
+
+                  <div className="w-full h-64 md:h-80 rounded-2xl overflow-hidden border-2 border-white shadow-md relative">
+                    <iframe 
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d699.718312330198!2d92.79233906263863!3d24.77161507565365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x374e491772674527%3A0xcd82c9e3f4a023b5!2sSUBHASHINI%20MEDICARE!5e0!3m2!1sen!2sin!4v1778989781124!5m2!1sen!2sin" 
+                      className="absolute inset-0 w-full h-full"
+                      style={{ border: 0 }} 
+                      allowFullScreen 
+                      loading="lazy" 
+                      referrerPolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                  </div>
                 </div>
               </div>
 

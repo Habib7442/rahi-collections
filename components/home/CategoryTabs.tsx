@@ -24,7 +24,6 @@ function CategoryTabsContent({ categories }: CategoryTabsProps) {
 
   // Filter and prioritize "Ladies Wear" to be the first tab
   const activeCategories = categories
-    .filter(cat => cat.products && cat.products.length > 0)
     .sort((a: any, b: any) => {
       if (a.slug === 'ladies-wear') return -1;
       if (b.slug === 'ladies-wear') return 1;
@@ -76,13 +75,13 @@ function CategoryTabsContent({ categories }: CategoryTabsProps) {
           onValueChange={handleTabChange}
           className="w-full"
         >
-          <div className="flex justify-center mb-12">
-            <TabsList className="bg-white border border-border p-1 rounded-full h-auto flex-wrap justify-center gap-2">
+          <div className="w-full overflow-x-auto no-scrollbar mb-12 pb-2 -mx-6 px-6 md:mx-0 md:px-0 flex md:justify-center">
+            <TabsList className="bg-white border border-border p-1 rounded-full h-auto flex flex-nowrap w-max gap-1 md:gap-2 mx-auto md:mx-0">
               {activeCategories.map((category) => (
                 <TabsTrigger
                   key={category._id}
                   value={category.slug}
-                  className="rounded-full px-6 py-2.5 text-sm font-semibold data-[state=active]:bg-rahi-red-500 data-[state=active]:text-white transition-all"
+                  className="rounded-full px-5 py-2 md:px-6 md:py-2.5 text-sm font-semibold data-[state=active]:bg-rahi-red-500 data-[state=active]:text-white transition-all whitespace-nowrap"
                 >
                   {category.title}
                 </TabsTrigger>
@@ -92,11 +91,23 @@ function CategoryTabsContent({ categories }: CategoryTabsProps) {
 
           {activeCategories.map((category) => (
             <TabsContent key={category._id} value={category.slug} className="mt-0">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                {category.products?.map((product) => (
-                  <ProductCard key={product._id} product={product} />
-                ))}
-              </div>
+              {category.products && category.products.length > 0 ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                  {category.products.map((product, index) => (
+                    <ProductCard 
+                      key={product._id} 
+                      product={product} 
+                      priority={index < 4 && category.slug === currentTab}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-16 mb-12 bg-white/50 rounded-3xl border border-dashed border-sky-200">
+                  <p className="text-ink-500 font-accent text-lg">
+                    New items arriving soon in this collection!
+                  </p>
+                </div>
+              )}
               
               <div className="flex justify-center">
                 <Button 

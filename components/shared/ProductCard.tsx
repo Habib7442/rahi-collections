@@ -18,9 +18,10 @@ import { Product } from "@/lib/types";
 
 interface ProductCardProps {
   product: Product;
+  priority?: boolean;
 }
 
-export default function ProductCard({ product }: ProductCardProps) {
+export default function ProductCard({ product, priority = false }: ProductCardProps) {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
 
@@ -79,6 +80,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                   src={urlFor(img).url()}
                   alt={`${product.name} - ${index + 1}`}
                   fill
+                  priority={priority && index === 0}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover"
                 />
