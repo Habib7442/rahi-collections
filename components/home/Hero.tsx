@@ -16,6 +16,8 @@ export default function Hero() {
         alt="Rahi's Collection Storefront"
         fill
         priority
+        quality={100}
+        sizes="100vw"
         className="object-cover object-center absolute inset-0 z-0"
       />
       {/* Side Gradient Overlay for text readability on the left, fully clear on the right */}
