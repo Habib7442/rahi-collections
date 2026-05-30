@@ -64,7 +64,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-sky-100 flex flex-col h-full"
+      className="group bg-white rounded-[1.8rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-cream-200 flex flex-col h-full"
     >
       {/* Image Carousel */}
       <div className="relative aspect-[4/5] overflow-hidden">
@@ -106,12 +106,12 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
         {/* Badges */}
         <div className="absolute top-4 left-4 flex flex-col gap-2">
           {product.isNewArrival && (
-            <Badge className="bg-rahi-red-500 hover:bg-rahi-red-600 text-white border-none px-3 py-1 text-xs font-semibold">
+            <Badge className="bg-rahi-red-500 hover:bg-rahi-red-600 text-white border-none px-3.5 py-1 text-xs font-bold uppercase tracking-wider rounded-full shadow-sm">
               NEW
             </Badge>
           )}
           {product.isFeatured && (
-            <Badge className="bg-sky-500 hover:bg-sky-600 text-white border-none px-3 py-1 text-xs font-semibold">
+            <Badge className="bg-butter-300 hover:bg-butter-300 text-ink-900 border border-ink-900/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider rounded-full shadow-sm">
               FEATURED
             </Badge>
           )}
@@ -131,12 +131,12 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
           </span>
           <div className="flex gap-1">
             {product.images && product.images.length > 1 && (
-              <span className="text-[10px] bg-sky-50 text-sky-600 px-2 py-0.5 rounded-full border border-sky-100">
+              <span className="text-[10px] bg-butter-100 text-ink-600 px-2 py-0.5 rounded-full border border-butter-300/40 font-bold">
                 +{product.images.length - 1} More
               </span>
             )}
             {product.rawImage && (
-              <span className="text-[10px] bg-rahi-red-50 text-rahi-red-600 px-2 py-0.5 rounded-full border border-rahi-red-100">
+              <span className="text-[10px] bg-rahi-red-50 text-rahi-red-600 px-2 py-0.5 rounded-full border border-rahi-red-100 font-bold">
                 Raw View
               </span>
             )}

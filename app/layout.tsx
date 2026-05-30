@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter, Caveat } from "next/font/google";
+import { Cormorant_Garamond, Inter, Caveat } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import Header from "@/components/shared/Header";
 
-const fraunces = Fraunces({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-fraunces",
-  axes: ["SOFT", "opsz"],
+  variable: "--font-cormorant",
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
 });
 
 const inter = Inter({
@@ -87,7 +88,7 @@ export default function RootLayout({
       className={cn(
         "h-full",
         "antialiased",
-        fraunces.variable,
+        cormorant.variable,
         inter.variable,
         caveat.variable,
         "font-sans"

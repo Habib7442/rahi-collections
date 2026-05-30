@@ -53,20 +53,30 @@ function CategoryTabsContent({ categories }: CategoryTabsProps) {
   return (
     <section className="py-20 bg-background/50">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 relative">
           <motion.h2 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-serif text-4xl md:text-5xl text-ink-900 mb-4"
+            className="font-serif text-4xl md:text-5xl lg:text-6xl text-ink-900 mb-4 tracking-tight"
           >
-            Explore Collections
+            Explore Our Collections
           </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="font-accent text-rahi-red-600 text-2xl lg:text-3xl mb-4 rotate-[-1.5deg] inline-block"
+          >
+            handpicked style, curated just for you
+          </motion.p>
           <motion.div 
             initial={{ opacity: 0, scaleX: 0 }}
             whileInView={{ opacity: 1, scaleX: 1 }}
             viewport={{ once: true }}
-            className="h-1 w-24 bg-rahi-red-500 mx-auto rounded-full"
+            transition={{ delay: 0.2 }}
+            className="h-[2px] w-36 bg-gradient-to-r from-transparent via-rahi-red-500 to-transparent mx-auto rounded-full mt-2"
           />
         </div>
 
@@ -109,11 +119,10 @@ function CategoryTabsContent({ categories }: CategoryTabsProps) {
                 </div>
               )}
               
-              <div className="flex justify-center">
+              <div className="flex justify-center mt-12">
                 <Button 
                   asChild
-                  variant="outline" 
-                  className="rounded-full border-rahi-red-500 text-rahi-red-500 hover:bg-rahi-red-50 px-8 py-6 h-auto font-bold"
+                  className="rounded-full border-2 border-ink-900 bg-white text-ink-900 hover:bg-ink-900 hover:text-white px-10 py-5 h-auto font-bold text-lg shadow-[4px_4px_0px_#1A1410] hover:scale-105 active:scale-95 transition-all duration-300"
                 >
                   <Link href={`/collections/${category.slug}`}>
                     View Full {category.title} Collection

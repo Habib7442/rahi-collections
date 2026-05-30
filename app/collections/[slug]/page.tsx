@@ -10,12 +10,14 @@ import { SITE } from "@/lib/seo";
 
 interface CategoryPageProps {
   params: Promise<{ slug: string }>;
-  searchParams: Promise<{ page?: string }>;
+  searchParams: Promise<{ page?: string; subcategory?: string }>;
 }
 
-export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: CategoryPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const data = await getProductsByCategory(slug);
+  const sParams = await searchParams;
+  const subCategorySlug = sParams.subcategory;
+  const data = await getProductsByCategory(slug, 1, 20, subCategorySlug);
   
   if (!data.category) {
     return {
@@ -23,16 +25,32 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
     };
   }
 
+  const subCategoryName = subCategorySlug && data.subCategories 
+    ? data.subCategories.find((sc: any) => sc.slug === subCategorySlug)?.title 
+    : null;
+
+  const title = subCategoryName 
+    ? `${subCategoryName} | ${data.category.title} Collections` 
+    : `${data.category.title} Collections`;
+
+  const description = subCategoryName
+    ? `Browse our latest collection of ${subCategoryName} under ${data.category.title} at ${SITE.name}. Premium quality and traditional designs.`
+    : data.category.description || `Browse our latest collection of ${data.category.title} at ${SITE.name}. Premium quality and traditional designs.`;
+
+  const canonical = subCategorySlug 
+    ? `/collections/${slug}?subcategory=${subCategorySlug}`
+    : `/collections/${slug}`;
+
   return {
-    title: `${data.category.title} Collections`,
-    description: data.category.description || `Browse our latest collection of ${data.category.title} at ${SITE.name}. Premium quality and traditional designs.`,
+    title,
+    description,
     openGraph: {
-      title: `${data.category.title} | ${SITE.name}`,
-      description: data.category.description,
-      url: `${SITE.url}/collections/${slug}`,
+      title: `${title} | ${SITE.name}`,
+      description,
+      url: `${SITE.url}${canonical}`,
     },
     alternates: {
-      canonical: `/collections/${slug}`,
+      canonical,
     }
   };
 }
@@ -41,15 +59,18 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
   const { slug } = await params;
   const sParams = await searchParams;
   const currentPage = Math.max(1, parseInt(sParams.page || "1") || 1);
+  const subCategorySlug = sParams.subcategory;
   const pageSize = 20;
 
   let category = null;
+  let subCategories: any[] = [];
   let products = [];
   let total = 0;
 
   try {
-    const data = await getProductsByCategory(slug, currentPage, pageSize);
+    const data = await getProductsByCategory(slug, currentPage, pageSize, subCategorySlug);
     category = data.category;
+    subCategories = data.subCategories || [];
     products = data.products;
     total = data.total;
   } catch (error) {
@@ -61,6 +82,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
   }
 
   const totalPages = Math.ceil(total / pageSize);
+  const subCategoryQueryParam = subCategorySlug ? `&subcategory=${subCategorySlug}` : "";
 
   return (
     <div className="flex flex-col min-h-screen pt-20">
@@ -79,6 +101,44 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
               <p className="text-ink-600 max-w-2xl text-lg">
                 {category.description}
               </p>
+            )}
+
+            {/* Sub-category Tabs */}
+            {subCategories.length > 0 && (
+              <div className="mt-8 border-t border-cream-200/60 pt-6">
+                <div className="flex items-center gap-2 overflow-x-auto pb-3 -mx-6 px-6 md:mx-0 md:px-0 scrollbar-none">
+                  {/* "All" Tab */}
+                  <Link
+                    href={`/collections/${slug}`}
+                    className={`px-5 py-2 rounded-full border text-sm font-medium tracking-wide transition-all shrink-0 select-none ${
+                      !subCategorySlug
+                        ? "bg-rahi-red-500 border-rahi-red-500 text-white shadow-sm font-semibold scale-105 rotate-[-1deg]"
+                        : "bg-cream-100 hover:bg-cream-200/80 border-cream-200 text-ink-600 hover:text-ink-900"
+                    }`}
+                  >
+                    All
+                  </Link>
+
+                  {/* Sub-category Tabs */}
+                  {subCategories.map((sub: any, idx: number) => {
+                    const isActive = subCategorySlug === sub.slug;
+                    const rotation = idx % 2 === 0 ? "rotate-[1deg]" : "rotate-[-1deg]";
+                    return (
+                      <Link
+                        key={sub._id}
+                        href={`/collections/${slug}?subcategory=${sub.slug}`}
+                        className={`px-5 py-2 rounded-full border text-sm font-medium tracking-wide transition-all shrink-0 select-none ${
+                          isActive
+                            ? `bg-rahi-red-500 border-rahi-red-500 text-white shadow-sm font-semibold scale-105 ${rotation}`
+                            : "bg-cream-100 hover:bg-cream-200/80 border-cream-200 text-ink-600 hover:text-ink-900"
+                        }`}
+                      >
+                        {sub.title}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
             )}
           </div>
         </div>
@@ -102,7 +162,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
                     asChild={currentPage > 1}
                   >
                     {currentPage > 1 ? (
-                      <Link href={`/collections/${slug}?page=${currentPage - 1}`}>Previous</Link>
+                      <Link href={`/collections/${slug}?page=${currentPage - 1}${subCategoryQueryParam}`}>Previous</Link>
                     ) : (
                       <span>Previous</span>
                     )}
@@ -118,7 +178,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
                     asChild={currentPage < totalPages}
                   >
                     {currentPage < totalPages ? (
-                      <Link href={`/collections/${slug}?page=${currentPage + 1}`}>Next</Link>
+                      <Link href={`/collections/${slug}?page=${currentPage + 1}${subCategoryQueryParam}`}>Next</Link>
                     ) : (
                       <span>Next</span>
                     )}

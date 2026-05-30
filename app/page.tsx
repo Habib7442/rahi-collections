@@ -2,14 +2,23 @@ import Hero from "@/components/home/Hero";
 import Footer from "@/components/shared/Footer";
 import WhatsAppFloat from "@/components/shared/WhatsAppFloat";
 import CategoryTabs from "@/components/home/CategoryTabs";
-import { getCategoriesWithProducts } from "@/lib/sanity-queries";
+import TeaserMarquee from "@/components/home/TeaserMarquee";
+import { getCategoriesWithProducts, getLatestProducts } from "@/lib/sanity-queries";
 
 export default async function Home() {
   let categories = [];
+  let latestProducts = [];
+  
   try {
-    categories = await getCategoriesWithProducts();
+    // Run both queries in parallel for peak loading performance
+    const [categoriesData, productsData] = await Promise.all([
+      getCategoriesWithProducts(),
+      getLatestProducts(10),
+    ]);
+    categories = categoriesData || [];
+    latestProducts = productsData || [];
   } catch (error) {
-    console.error("Failed to fetch categories:", error);
+    console.error("Failed to fetch landing page data:", error);
   }
 
   return (
@@ -20,17 +29,8 @@ export default async function Home() {
         {/* Dynamic Collections Section */}
         <CategoryTabs categories={categories} />
 
-        {/* Coming Soon Section */}
-        <div className="py-24 bg-white text-center border-t border-sky-100">
-          <div className="container mx-auto px-6">
-            <h2 className="font-serif text-3xl lg:text-4xl text-ink-900 mb-4 italic">
-              &ldquo;New collections arriving soon...&rdquo;
-            </h2>
-            <p className="text-ink-600 font-accent text-xl">
-              Stay tuned for Durga Puja 2026 Lookbook
-            </p>
-          </div>
-        </div>
+        {/* Dynamic Teaser Marquee Section (Continuous Scroll Left-to-Right) */}
+        <TeaserMarquee products={latestProducts} />
       </main>
       
       <Footer />

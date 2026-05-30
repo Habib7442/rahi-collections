@@ -29,6 +29,28 @@ export const product = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'subCategory',
+      title: 'Sub-Category',
+      type: 'reference',
+      to: [{ type: 'subCategory' }],
+      description: 'Optional sub-category (e.g. sarees, kurtis) filtered by the selected Category above',
+      options: {
+        filter: ({ document }) => {
+          if (!document.category) {
+            return {
+              filter: '',
+            }
+          }
+          return {
+            filter: 'parentCategory._ref == $categoryId',
+            params: {
+              categoryId: (document.category as any)._ref,
+            },
+          }
+        },
+      },
+    }),
+    defineField({
       name: 'description',
       title: 'Description',
       type: 'text',

@@ -5,12 +5,12 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-fraunces: var(--font-fraunces);
+  --font-cormorant: var(--font-cormorant);
   --font-inter: var(--font-inter);
   --font-caveat: var(--font-caveat);
 
   --font-sans: var(--font-inter);
-  --font-serif: var(--font-fraunces);
+  --font-serif: var(--font-cormorant);
   --font-accent: var(--font-caveat);
 
   /* Brand Colors */
@@ -106,4 +106,28 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+  .sticker-text {
+    text-shadow: 
+      -2.5px -2.5px 0 #FFFAF2,  
+       2.5px -2.5px 0 #FFFAF2,
+      -2.5px  2.5px 0 #FFFAF2,
+       2.5px  2.5px 0 #FFFAF2,
+       5px  5px 0 #1A1410;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(-33.3333%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 45s linear infinite;
+  will-change: transform;
 }

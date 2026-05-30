@@ -1,3 +1,10 @@
+export interface SubCategory {
+  _id: string;
+  title: string;
+  slug: string;
+  parentCategory?: Category;
+}
+
 export interface Product {
   _id: string;
   name: string;
@@ -7,6 +14,7 @@ export interface Product {
   rawImage?: any;
   isNewArrival?: boolean;
   isFeatured?: boolean;
+  subCategory?: SubCategory;
 }
 
 export interface Category {
