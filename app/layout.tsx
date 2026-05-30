@@ -81,6 +81,46 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ClothingStore",
+    "name": SITE.name,
+    "image": `${SITE.url}${SITE.ogImage}`,
+    "telephone": SITE.phones.join(", "),
+    "email": SITE.email,
+    "url": SITE.url,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Near SUBHASHINI MEDICARE, Ghungoor",
+      "addressLocality": "Silchar",
+      "addressRegion": "Assam",
+      "postalCode": "788014",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 24.7716151,
+      "longitude": 92.7923391
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "10:00",
+        "closes": "20:30"
+      }
+    ],
+    "priceRange": "₹",
+    "sameAs": [...SITE.sameAs]
+  };
+
   return (
     <html
       lang="en"
@@ -98,6 +138,10 @@ export default function RootLayout({
         suppressHydrationWarning 
         className="min-h-full flex flex-col bg-background text-foreground selection:bg-rahi-red-100 selection:text-rahi-red-600"
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <Header />
         {children}
       </body>

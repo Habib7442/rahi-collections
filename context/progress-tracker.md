@@ -27,6 +27,7 @@
 - [x] **Typography & Sticker Styling**: Upgraded the primary brand serif font to the ultra-stylish, sexy `Cormorant Garamond` and implemented solid, ultra-bold, high-contrast typography (with no blurry drop shadows or outlines) for the main hero heading alongside a clean, minimalist straight text sub-title.
 - [x] **Durga Puja Dynamic Teaser & 120 FPS Marquee**: Replaced the static coming soon banner with a dynamic infinite horizontal marquee of the top 10 items. Re-engineered it to run via hardware-accelerated CSS keyframes (`will-change: transform` and `translate3d`), running entirely on the browser's compositor thread to deliver lag-free 120 FPS scrolling.
 - [x] **Storefront & Product Card Redesign**: Upgraded product cards to feature a luxury `rounded-[1.8rem]` frame, `border-cream-200`, and elegant brand accent badges (NEW in brand red, FEATURED in soft butter-300), completely eliminating stale sky-blue visual fragments from other sections.
+- [x] **Local SEO Structured Data**: Integrated full, highly-accurate `LocalBusiness` (ClothingStore) JSON-LD structured schema in `app/layout.tsx`. Anchored geo-coordinates to the precise location of `SUBHASHINI MEDICARE` (Lat `24.7716151`, Lng `92.7923391`), aligned brand metadata, injected social linking, and successfully verified Next.js production compilations with Turbopack.
 
 ## In Progress
 - [ ] Analytics integration for WhatsApp conversion events.

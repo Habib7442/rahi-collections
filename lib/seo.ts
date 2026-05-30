@@ -13,6 +13,10 @@ export const SITE = {
     instagram: "https://www.instagram.com/rahiscollection.silchar/",
     facebook: "https://facebook.com/rahicollections",
   },
+  sameAs: [
+    "https://www.instagram.com/rahiscollection.silchar/",
+    "https://facebook.com/rahicollections"
+  ],
   ogImage: "/og-image.jpg",
   keywords: [
     "clothes shop in Silchar",
