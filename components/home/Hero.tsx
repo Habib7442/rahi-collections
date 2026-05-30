@@ -11,15 +11,13 @@ export default function Hero() {
   return (
     <section className="relative flex flex-col justify-end md:justify-center overflow-hidden min-h-[92vh] pt-24 pb-12 md:py-32 bg-cream-50">
 
-      {/* Full-width Background Image - fully clear and visible on all devices */}
-      <Image
+      {/* Full-width Background Image - fully clear and visible on all devices at 100% raw quality */}
+      <img
         src="/hero_bg.png"
         alt="Rahi's Collection Storefront Background"
-        fill
-        priority
-        quality={100}
-        sizes="100vw"
-        className="object-cover object-[80%_25%] md:object-[68%_25%] lg:object-right absolute inset-0 z-0"
+        className="object-cover object-[80%_25%] md:object-[68%_25%] lg:object-right absolute inset-0 w-full h-full z-0"
+        loading="eager"
+        fetchPriority="high"
       />
 
       {/* Smooth bottom-up cream gradient fade - covers bottom 48% of screen on mobile, and fades smoothly on desktop */}
