@@ -13,7 +13,7 @@ export default function Hero() {
 
       {/* Full-width Background Image - fully clear and visible on all devices at 100% raw quality */}
       <img
-        src="/hero_bg.png"
+        src="/hero_bg.webp"
         alt="Rahi's Collection Storefront Background"
         className="object-cover object-[80%_25%] md:object-[68%_25%] lg:object-right absolute inset-0 w-full h-full z-0"
         loading="eager"
