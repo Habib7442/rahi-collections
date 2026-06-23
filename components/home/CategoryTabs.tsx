@@ -6,8 +6,8 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-import { useSearchParams, useRouter, usePathname } from "next/navigation";
-import { Suspense } from "react";
+import { useSearchParams, usePathname } from "next/navigation";
+import { Suspense, useState, useEffect } from "react";
 
 import { Category } from "@/lib/types";
 
@@ -17,18 +17,35 @@ interface CategoryTabsProps {
 
 function CategoryTabsContent({ categories }: CategoryTabsProps) {
   const searchParams = useSearchParams();
-  const router = useRouter();
   const pathname = usePathname();
 
-  if (!categories || categories.length === 0) return null;
-
-  // Filter and prioritize "Ladies Wear" to be the first tab
+  // Avoid mutating the original prop array and define it before hooks
   const activeCategories = categories
-    .sort((a: Category, b: Category) => {
-      if (a.slug === 'ladies-wear') return -1;
-      if (b.slug === 'ladies-wear') return 1;
-      return 0; // Maintain other categories' order
+    ? [...categories].sort((a: Category, b: Category) => {
+        if (a.slug === 'ladies-wear') return -1;
+        if (b.slug === 'ladies-wear') return 1;
+        return 0; // Maintain other categories' order
+      })
+    : [];
+
+  const defaultTab = activeCategories.length > 0 ? activeCategories[0].slug : "";
+  const categoryParam = searchParams.get("category");
+  const targetTab = activeCategories.some(cat => cat.slug === categoryParam)
+    ? (categoryParam as string)
+    : defaultTab;
+
+  // Use local state for instant tab switching
+  const [currentTab, setCurrentTab] = useState(targetTab);
+
+  // Sync tab with URL search parameter when navigating back/forward
+  useEffect(() => {
+    const frameId = requestAnimationFrame(() => {
+      setCurrentTab(targetTab);
     });
+    return () => cancelAnimationFrame(frameId);
+  }, [targetTab]);
+
+  if (!categories || categories.length === 0) return null;
 
   if (activeCategories.length === 0) return (
     <div className="text-center py-20 bg-background rounded-3xl border-2 border-dashed border-border">
@@ -38,16 +55,14 @@ function CategoryTabsContent({ categories }: CategoryTabsProps) {
     </div>
   );
 
-  const defaultTab = activeCategories[0].slug;
-  const categoryParam = searchParams.get("category");
-  const currentTab = activeCategories.some(cat => cat.slug === categoryParam) 
-    ? (categoryParam as string) 
-    : defaultTab;
-
   const handleTabChange = (value: string) => {
-    const params = new URLSearchParams(searchParams.toString());
+    setCurrentTab(value);
+    
+    // Update the URL without triggering a slow server-side re-render in Next.js 15
+    const params = new URLSearchParams(window.location.search);
     params.set("category", value);
-    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+    const newUrl = `${pathname}?${params.toString()}`;
+    window.history.replaceState(null, "", newUrl);
   };
 
   return (
