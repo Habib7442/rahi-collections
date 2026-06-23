@@ -1,7 +1,6 @@
 import Footer from "@/components/shared/Footer";
 import WhatsAppFloat from "@/components/shared/WhatsAppFloat";
 import Image from "next/image";
-import { SITE } from "@/lib/seo";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -38,13 +37,13 @@ export default function AboutPage() {
               </div>
               
               <div>
-                <span className="text-rahi-red-500 font-bold tracking-[0.2em] uppercase text-sm mb-6 block">The Heart of Rahi's</span>
+                <span className="text-rahi-red-500 font-bold tracking-[0.2em] uppercase text-sm mb-6 block">The Heart of Rahi&apos;s</span>
                 <h1 className="font-serif text-5xl md:text-6xl text-ink-900 mb-6">Meet Susmita</h1>
                 <p className="text-xl font-accent text-rahi-red-600 mb-8 italic">Susmita Chakraborty Deb · Founder & Visionary</p>
                 
                 <div className="space-y-6 text-ink-600 text-lg leading-relaxed">
                   <p>
-                    For Susmita, Rahi's Collection is more than just a boutique—it's a tribute to the vibrant spirit of Silchar. With a keen eye for timeless elegance and a passion for community, she founded this space in 2018 to bridge the gap between traditional heritage and modern style.
+                    For Susmita, Rahi&apos;s Collection is more than just a boutique—it&apos;s a tribute to the vibrant spirit of Silchar. With a keen eye for timeless elegance and a passion for community, she founded this space in 2018 to bridge the gap between traditional heritage and modern style.
                   </p>
                   <p>
                     Growing up surrounded by the rich textiles and colors of Assam, Susmita envisioned a storefront where every family—from the trend-setting student to the graceful matriarch—could find something that makes them feel extraordinary.
@@ -89,7 +88,7 @@ export default function AboutPage() {
         <div className="py-24 bg-sky-50">
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
-              <h2 className="font-serif text-4xl text-ink-900 mb-4">Why Rahi's?</h2>
+              <h2 className="font-serif text-4xl text-ink-900 mb-4">Why Rahi&apos;s?</h2>
               <div className="h-1 w-24 bg-rahi-red-500 mx-auto rounded-full"></div>
             </div>
             

@@ -1,4 +1,4 @@
-import { getProductsByCategory, getAllCategories } from "@/lib/sanity-queries";
+import { getProductsByCategory } from "@/lib/sanity-queries";
 import ProductCard from "@/components/shared/ProductCard";
 import Footer from "@/components/shared/Footer";
 import WhatsAppFloat from "@/components/shared/WhatsAppFloat";
@@ -7,6 +7,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { SITE } from "@/lib/seo";
+import { Product, SubCategory } from "@/lib/types";
 
 interface CategoryPageProps {
   params: Promise<{ slug: string }>;
@@ -26,7 +27,7 @@ export async function generateMetadata({ params, searchParams }: CategoryPagePro
   }
 
   const subCategoryName = subCategorySlug && data.subCategories 
-    ? data.subCategories.find((sc: any) => sc.slug === subCategorySlug)?.title 
+    ? data.subCategories.find((sc: SubCategory) => sc.slug === subCategorySlug)?.title 
     : null;
 
   const title = subCategoryName 
@@ -63,7 +64,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
   const pageSize = 20;
 
   let category = null;
-  let subCategories: any[] = [];
+  let subCategories: SubCategory[] = [];
   let products = [];
   let total = 0;
 
@@ -120,7 +121,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
                   </Link>
 
                   {/* Sub-category Tabs */}
-                  {subCategories.map((sub: any, idx: number) => {
+                  {subCategories.map((sub: SubCategory, idx: number) => {
                     const isActive = subCategorySlug === sub.slug;
                     const rotation = idx % 2 === 0 ? "rotate-[1deg]" : "rotate-[-1deg]";
                     return (
@@ -148,7 +149,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
           {products.length > 0 ? (
             <>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-                {products.map((product: any) => (
+                {products.map((product: Product) => (
                   <ProductCard key={product._id} product={product} />
                 ))}
               </div>

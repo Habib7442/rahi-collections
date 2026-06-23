@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
+import { Category, Product } from "@/lib/types";
 
 export const metadata: Metadata = {
   title: "All Collections",
@@ -42,7 +43,7 @@ export default async function CollectionsPage({ searchParams }: CollectionsPageP
   }
 
   // Prioritize "Ladies Wear" to be at the top
-  const categories = [...categoriesData].sort((a: any, b: any) => {
+  const categories: Category[] = [...categoriesData].sort((a: Category, b: Category) => {
     if (a.slug === 'ladies-wear') return -1;
     if (b.slug === 'ladies-wear') return 1;
     return (a.title || '').localeCompare(b.title || '');
@@ -87,7 +88,7 @@ export default async function CollectionsPage({ searchParams }: CollectionsPageP
                   >
                     All Items
                   </Link>
-                  {categories.map((category: any) => (
+                  {categories.map((category: Category) => (
                     <Link 
                       key={category._id}
                       href={`/collections/${category.slug}`}
@@ -110,7 +111,7 @@ export default async function CollectionsPage({ searchParams }: CollectionsPageP
               {products.length > 0 ? (
                 <>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                    {products.map((product: any) => (
+                    {products.map((product: Product) => (
                       <ProductCard key={product._id} product={product} />
                     ))}
                   </div>

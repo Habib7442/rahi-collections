@@ -22,7 +22,7 @@ export default function VisitPage() {
           <div className="container mx-auto px-6 text-center">
             <h1 className="font-serif text-5xl md:text-6xl text-ink-900 mb-6">Visit Our Boutique</h1>
             <p className="text-ink-600 max-w-2xl mx-auto text-xl">
-              Located in the heart of Ghungoor, Silchar. We'd love to see you in person!
+              Located in the heart of Ghungoor, Silchar. We&apos;d love to see you in person!
             </p>
           </div>
         </div>
@@ -76,7 +76,7 @@ export default function VisitPage() {
                   <h3 className="font-serif text-2xl text-ink-900 mb-4">Driving Directions</h3>
                   <p className="text-ink-600 mb-6">
                     Our boutique is conveniently located in Ghungoor, near SUBHASHINI MEDICARE. 
-                    Look for the crimson red signboard of "Rahi's Collection".
+                    Look for the crimson red signboard of &ldquo;Rahi&apos;s Collection&rdquo;.
                   </p>
                   <Link 
                     href="https://www.google.com/maps/place/SUBHASHINI+MEDICARE/@24.7716151,92.7923391,19.37z/data=!4m20!1m13!4m12!1m6!1m2!1s0x374e4f16316aaaab:0x99fea6ce904edb2!2sMadhab+Chandra+Das+College,+PV9H%2B88X,+Madhab+Chandra+Das+College,+Kabuganj+-+Sonai+Rd,+downtown,+Tulargram+Pt+II,+Assam+788119!2m2!1d92.8786065!2d24.7189414!1m3!2m2!1d92.7930333!2d24.7716418!3e9!3m5!1s0x374e491772674527:0xcd82c9e3f4a023b5!8m2!3d24.7716281!4d92.7932174!16s%2Fg%2F11gnq82gfm?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D" 
@@ -142,7 +142,7 @@ export default function VisitPage() {
                 </div>
                 <div className="bg-rahi-red-50 p-6 rounded-2xl border border-rahi-red-100">
                   <p className="text-rahi-red-700 font-serif italic text-center">
-                    "Look for the bright crimson sign—we're easy to spot from the main road!"
+                    &ldquo;Look for the bright crimson sign—we&apos;re easy to spot from the main road!&rdquo;
                   </p>
                 </div>
               </div>

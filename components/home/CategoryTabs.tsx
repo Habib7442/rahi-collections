@@ -24,7 +24,7 @@ function CategoryTabsContent({ categories }: CategoryTabsProps) {
 
   // Filter and prioritize "Ladies Wear" to be the first tab
   const activeCategories = categories
-    .sort((a: any, b: any) => {
+    .sort((a: Category, b: Category) => {
       if (a.slug === 'ladies-wear') return -1;
       if (b.slug === 'ladies-wear') return 1;
       return 0; // Maintain other categories' order
@@ -33,7 +33,7 @@ function CategoryTabsContent({ categories }: CategoryTabsProps) {
   if (activeCategories.length === 0) return (
     <div className="text-center py-20 bg-background rounded-3xl border-2 border-dashed border-border">
       <p className="text-ink-400 font-serif text-xl italic">
-        "Our latest collections are currently being curated. Check back soon!"
+        &quot;Our latest collections are currently being curated. Check back soon!&quot;
       </p>
     </div>
   );

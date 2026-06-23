@@ -5,9 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { urlFor } from "@/sanity/lib/image";
 import { useState } from "react";
+import { Product } from "@/lib/types";
 
 interface TeaserMarqueeProps {
-  products: any[];
+  products: Product[];
 }
 
 export default function TeaserMarquee({ products }: TeaserMarqueeProps) {
@@ -61,7 +62,7 @@ export default function TeaserMarquee({ products }: TeaserMarqueeProps) {
           }}
           className="animate-marquee flex whitespace-nowrap"
         >
-          {marqueeItems.map((product: any, idx: number) => {
+          {marqueeItems.map((product: Product, idx: number) => {
             const productImg = product.images?.[0] || product.rawImage;
             const fallbackImg = "/hero_bg.png";
             

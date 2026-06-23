@@ -20,10 +20,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }))
 
   // Dynamic category routes
-  let categoryRoutes: any[] = []
+  let categoryRoutes: MetadataRoute.Sitemap = []
   try {
     const categories = await getAllCategories()
-    categoryRoutes = categories.map((category: any) => ({
+    categoryRoutes = categories.map((category: { slug: string }) => ({
       url: `${baseUrl}/collections/${category.slug}`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,

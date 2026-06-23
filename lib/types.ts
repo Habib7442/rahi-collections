@@ -1,3 +1,5 @@
+import type { Image } from "sanity";
+
 export interface SubCategory {
   _id: string;
   title: string;
@@ -10,10 +12,11 @@ export interface Product {
   name: string;
   slug?: string;
   description?: string;
-  images?: any[];
-  rawImage?: any;
+  images?: Image[];
+  rawImage?: Image;
   isNewArrival?: boolean;
   isFeatured?: boolean;
+  category?: Category;
   subCategory?: SubCategory;
 }
 

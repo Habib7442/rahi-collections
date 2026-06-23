@@ -44,7 +44,7 @@ export const product = defineType({
           return {
             filter: 'parentCategory._ref == $categoryId',
             params: {
-              categoryId: (document.category as any)._ref,
+              categoryId: (document.category as { _ref: string })._ref,
             },
           }
         },

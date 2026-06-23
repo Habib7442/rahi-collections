@@ -32,8 +32,8 @@ export default function LookbookPage() {
           <div className="container mx-auto px-6 relative z-10 text-center">
             <h1 className="font-serif text-5xl md:text-7xl mb-6">Seasonal Lookbook</h1>
             <p className="text-sky-100/80 max-w-2xl mx-auto text-xl font-accent">
-              Curated styles for Silchar's most vibrant celebrations. 
-              Discover the Rahi's Collection aesthetic.
+              Curated styles for Silchar&apos;s most vibrant celebrations. 
+              Discover the Rahi&apos;s Collection aesthetic.
             </p>
           </div>
         </div>

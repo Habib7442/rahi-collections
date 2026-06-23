@@ -1,34 +1,38 @@
 import { client } from "@/sanity/lib/client";
 import { unstable_cache } from "next/cache";
 
-export const getCategoriesWithProducts = unstable_cache(
-  async () => {
-    const query = `*[_type == "category"] {
+const fetchCategoriesWithProducts = async () => {
+  const query = `*[_type == "category"] {
+    _id,
+    title,
+    "slug": slug.current,
+    "products": *[_type == "product" && references(^._id)] | order(_createdAt desc) [0...8] {
       _id,
-      title,
+      name,
       "slug": slug.current,
-      "products": *[_type == "product" && references(^._id)] | order(_createdAt desc) [0...8] {
-        _id,
-        name,
-        "slug": slug.current,
-        description,
-        images,
-        rawImage,
-        isNewArrival,
-        isFeatured
-      }
-    }`;
+      description,
+      images,
+      rawImage,
+      isNewArrival,
+      isFeatured
+    }
+  }`;
 
-    return await client.fetch(query, {}, {
-      next: { revalidate: 3600 }
-    });
-  },
-  ["categories-with-products"],
-  {
-    revalidate: 3600,
-    tags: ["products", "categories"]
-  }
-);
+  return await client.fetch(query, {}, {
+    next: { revalidate: 3600 }
+  });
+};
+
+export const getCategoriesWithProducts = process.env.NODE_ENV === 'development'
+  ? fetchCategoriesWithProducts
+  : unstable_cache(
+      fetchCategoriesWithProducts,
+      ["categories-with-products"],
+      {
+        revalidate: 3600,
+        tags: ["products", "categories"]
+      }
+    );
 
 export async function getPaginatedProducts(page: number = 1, pageSize: number = 20, categorySlug?: string) {
   const start = (page - 1) * pageSize;
@@ -108,30 +112,34 @@ export async function getAllCategories() {
   return await client.fetch(query, {}, { next: { revalidate: 3600 } });
 }
 
-export const getLatestProducts = unstable_cache(
-  async (limit: number = 10) => {
-    const query = `*[_type == "product"] | order(_createdAt desc) [0...$limit] {
-      _id,
-      name,
-      "slug": slug.current,
-      description,
-      images,
-      rawImage,
-      isNewArrival,
-      isFeatured,
-      category-> {
-        title,
-        "slug": slug.current
-      }
-    }`;
+const fetchLatestProducts = async (limit: number = 10) => {
+  const query = `*[_type == "product"] | order(_createdAt desc) [0...$limit] {
+    _id,
+    name,
+    "slug": slug.current,
+    description,
+    images,
+    rawImage,
+    isNewArrival,
+    isFeatured,
+    category-> {
+      title,
+      "slug": slug.current
+    }
+  }`;
 
-    return await client.fetch(query, { limit }, {
-      next: { revalidate: 3600 }
-    });
-  },
-  ["latest-products-10"],
-  {
-    revalidate: 3600,
-    tags: ["products"]
-  }
-);
+  return await client.fetch(query, { limit }, {
+    next: { revalidate: 3600 }
+  });
+};
+
+export const getLatestProducts = process.env.NODE_ENV === 'development'
+  ? fetchLatestProducts
+  : unstable_cache(
+      fetchLatestProducts,
+      ["latest-products-10"],
+      {
+        revalidate: 3600,
+        tags: ["products"]
+      }
+    );

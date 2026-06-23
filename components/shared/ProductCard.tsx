@@ -30,6 +30,27 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
     ...(product.rawImage ? [product.rawImage] : []),
   ];
 
+  const autoplayPlugin = React.useMemo(() => [Autoplay({ delay: 5000 })], []);
+
+  React.useEffect(() => {
+    if (!api) return;
+    
+    const frameId = requestAnimationFrame(() => {
+      setCurrent(api.selectedScrollSnap());
+    });
+
+    const onSelect = () => {
+      setCurrent(api.selectedScrollSnap());
+    };
+
+    api.on("select", onSelect);
+    
+    return () => {
+      cancelAnimationFrame(frameId);
+      api.off("select", onSelect);
+    };
+  }, [api]);
+
   if (allImages.length === 0) return null;
 
   const mainImage = allImages[0];
@@ -41,23 +62,6 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
     const url = `https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
   };
-
-  const autoplayPlugin = React.useMemo(() => [Autoplay({ delay: 5000 })], []);
-
-  React.useEffect(() => {
-    if (!api) return;
-    
-    setCurrent(api.selectedScrollSnap());
-    const onSelect = () => {
-      setCurrent(api.selectedScrollSnap());
-    };
-
-    api.on("select", onSelect);
-    
-    return () => {
-      api.off("select", onSelect);
-    };
-  }, [api]);
 
   return (
     <motion.div
