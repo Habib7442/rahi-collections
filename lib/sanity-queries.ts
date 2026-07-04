@@ -19,20 +19,11 @@ const fetchCategoriesWithProducts = async () => {
   }`;
 
   return await client.fetch(query, {}, {
-    next: { revalidate: 3600 }
+    next: { revalidate: 0 }
   });
 };
 
-export const getCategoriesWithProducts = process.env.NODE_ENV === 'development'
-  ? fetchCategoriesWithProducts
-  : unstable_cache(
-      fetchCategoriesWithProducts,
-      ["categories-with-products"],
-      {
-        revalidate: 3600,
-        tags: ["products", "categories"]
-      }
-    );
+export const getCategoriesWithProducts = fetchCategoriesWithProducts;
 
 export async function getPaginatedProducts(page: number = 1, pageSize: number = 20, categorySlug?: string) {
   const start = (page - 1) * pageSize;
@@ -129,17 +120,8 @@ const fetchLatestProducts = async (limit: number = 10) => {
   }`;
 
   return await client.fetch(query, { limit }, {
-    next: { revalidate: 3600 }
+    next: { revalidate: 0 }
   });
 };
 
-export const getLatestProducts = process.env.NODE_ENV === 'development'
-  ? fetchLatestProducts
-  : unstable_cache(
-      fetchLatestProducts,
-      ["latest-products-10"],
-      {
-        revalidate: 3600,
-        tags: ["products"]
-      }
-    );
+export const getLatestProducts = fetchLatestProducts;
