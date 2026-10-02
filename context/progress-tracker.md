@@ -31,6 +31,7 @@
 - [x] **Real-Time Product Fetching (All Environments)**: Disabled Next.js static and server-side caching (set `revalidate: 0` and bypassed `unstable_cache`) for homepage `getCategoriesWithProducts` and `getLatestProducts` queries, ensuring that new products uploaded in Sanity immediately appear on the home page tabs and marquee across all environments.
 - [x] **Bug Fix Pass (Oct 2026)**: Hid the site Header on `/admin` so it no longer overlays Sanity Studio; fixed mobile menu icons (map → `/visit`, Instagram → profile); added missing `rahi-red-50/200/400/700` and `ink-500/700/800` tokens and corrected `ink-400` to spec `#8C7E70`; replaced leftover sky/emerald classes on About, Visit, Lookbook, Collections, and CategoryTabs; fixed marquee fallbacks (`/collections` link, `hero_bg.webp` image); made Footer category links CMS-driven; added branded `app/not-found.tsx`; aligned manifest colors to tokens.
 - [x] **Context Docs Sync**: Updated architecture, overview, UI, standards, and workflow docs to reflect Next.js 16, Sanity CMS, and Cormorant Garamond.
+- [x] **Bulk Product Upload Script**: Added `scripts/bulk-upload-products.mjs` (manifest-driven, dry-run by default, skips existing slugs) and uploaded 15 sarees (21 images) to Ladies Wear → Sarees via `scripts/manifests/sarees-2026-09.json`.
 
 ## In Progress
 - [ ] Analytics integration for WhatsApp conversion events.

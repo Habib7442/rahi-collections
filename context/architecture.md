@@ -22,6 +22,7 @@
 - `components/home/`: Home page sections (Hero, CategoryTabs, TeaserMarquee).
 - `lib/`: `sanity-queries.ts` (all GROQ queries), `seo.ts` (SITE constants), `types.ts`, `utils.ts`.
 - `sanity/`: Studio env validation, client, image URL builder, and schema types.
+- `scripts/`: Node maintenance scripts. `bulk-upload-products.mjs` uploads products + images to Sanity from a JSON manifest in `scripts/manifests/` (needs `SANITY_API_WRITE_TOKEN` in `.env.local`; dry run unless `--commit`).
 - `public/`: Static assets (hero, storefront photos, logo, social icons, business card).
 
 ## Storage Model
