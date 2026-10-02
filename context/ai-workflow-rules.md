@@ -1,7 +1,7 @@
 # AI Workflow Rules: Rahi's Collection
 
 ## Approach
-- **Spec-Driven**: Read the relevant spec file in `context/specs/` before implementing any feature.
+- **Spec-Driven**: Read the PRD (`project_docs/prd.md`) and the context files before implementing any feature.
 - **Incremental**: Build one "unit" at a time as defined in the `progress-tracker.md`.
 - **Verification**: Run `npm run build` or linting checks after major changes.
 

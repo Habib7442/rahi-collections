@@ -17,22 +17,21 @@ A blazing-fast, Gen-Z-coded website for **Rahi's Collection** — a family retai
 4. **Action**: User visits the physical shop in Ghungoor using the embedded map/directions.
 
 ## Features
-- **Visual Catalog**: Browse categories (Ladies, Gents, Kids, Jewellery, Stationery).
+- **Visual Catalog**: Browse CMS-managed categories and sub-categories (Ladies, Gents, Kids, Jewellery, Stationery).
 - **Seasonal Lookbooks**: High-quality photo essays for festivals (Durga Puja, etc.).
 - **WhatsApp Integration**: Persistent float button and per-product enquiry links.
 - **Visit Us**: Interactive map, hours, and directions.
 - **Local SEO**: Optimized metadata and local business schema.
 
 ## In-Scope
-- Next.js 15 App Router implementation.
+- Next.js 16 App Router implementation.
 - Responsive, mobile-first design (Gen-Z boutique aesthetic).
-- File-based content (MDX) for collections and lookbooks.
+- Sanity CMS (embedded Studio at `/admin`) for categories, sub-categories, and products.
 - Basic bilingual touches (English + Bengali).
 
 ## Out-of-Scope
 - Online checkout/payment gateway (Phase 2).
 - User accounts or shopping carts.
-- Backend Admin CMS (Phase 2).
 - Full multi-language translation.
 
 ## Success Criteria

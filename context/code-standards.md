@@ -43,5 +43,6 @@ export default function MyComponent({ className, children }: Props) {
 - **Global State**: Avoid unless absolutely necessary (no current need).
 
 ## API & Data
-- **Static First**: All initial content should be static or generated at build time.
-- **Fetch**: Use native `fetch` with Next.js revalidation settings.
+- **Sanity Queries**: All GROQ lives in `lib/sanity-queries.ts`. Always pass user input as GROQ params (`$slug`), never string-interpolate it.
+- **Revalidation**: Pass `{ next: { revalidate } }` to `client.fetch`. Wrap fetches in `try/catch` and render a graceful empty state on failure.
+- **Images**: Build Sanity image URLs with `urlFor()` from `sanity/lib/image.ts`.

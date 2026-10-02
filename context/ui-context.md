@@ -10,11 +10,20 @@ Light theme with a cream base, bold red accents, and playful sticker-like UI ele
 | **cream-50** | `#FFFAF2` | Page background |
 | **cream-100** | `#FFF4E6` | Cards, section alternates |
 | **cream-200** | `#F5E9D7` | Borders, dividers |
+| **rahi-red-50** | `#FDF2F4` | Faint tints, icon backgrounds |
+| **rahi-red-100** | `#FBE3E8` | Soft tints, badges |
+| **rahi-red-200** | `#F5C0CB` | Decorative lines |
+| **rahi-red-400** | `#E0566E` | Accent text on dark backgrounds |
 | **rahi-red-500** | `#C92340` | Primary brand color, CTAs |
 | **rahi-red-600** | `#A11C33` | Active states, hover |
-| **rahi-red-100** | `#FBE3E8` | Soft tints, badges |
+| **rahi-red-700** | `#821629` | Text on red tints |
 | **ink-900** | `#1A1410` | Primary text |
+| **ink-800** | `#2E241D` | Strong body text, dark hover |
+| **ink-700** | `#44382F` | Body text on light cards |
 | **ink-600** | `#5C4F44` | Secondary text |
+| **ink-500** | `#74675A` | Muted text |
+| **ink-400** | `#8C7E70` | Captions, placeholders |
+| **butter-100** | `#FFF4D6` | Featured sections, soft icon backgrounds |
 | **butter-300** | `#FFD89B` | "Sticker" accents, highlights |
 | **sage-400** | `#A8C4A2` | "New Arrival" tags |
 | **blush-300** | `#FFC8DD` | Soft accents, warm badges |
@@ -22,15 +31,17 @@ Light theme with a cream base, bold red accents, and playful sticker-like UI ele
 ## Typography
 | Scale | Font | Weight | Note |
 | :--- | :--- | :--- | :--- |
-| **Display** | Fraunces | 700/800 | Large headlines, logo |
-| **Headings** | Fraunces | 600 | Section headers |
-| **Body** | Inter | 400/500 | General text, UI |
-| **Accent** | Caveat | 500/700 | Handwritten touches (sparingly) |
+| **Display** | Cormorant Garamond | 700 (+ italic) | Large headlines, logo (`font-serif`) |
+| **Headings** | Cormorant Garamond | 600 | Section headers (`font-serif`) |
+| **Body** | Inter | 400/500 | General text, UI (`font-sans`) |
+| **Accent** | Caveat | 500/700 | Handwritten touches, sparingly (`font-accent`) |
+
+Note: the PRD specified Fraunces; the brand serif was intentionally switched to Cormorant Garamond.
 
 ## Layout Patterns
 - **Container**: Max-width 1280px, centered.
 - **Section Spacing**: Fluid padding using `clamp()`.
-- **Card Radius**: `1.5rem` (24px) for main cards, `0.75rem` (12px) for small elements.
+- **Card Radius**: `1.8rem` for product cards, `1.5rem` (24px) for main cards, `0.75rem` (12px) for small elements.
 - **Buttons**: Pill-shaped (`rounded-full`) for main CTAs.
 
 ## Component Conventions

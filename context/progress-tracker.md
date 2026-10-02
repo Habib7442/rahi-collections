@@ -29,14 +29,18 @@
 - [x] **Storefront & Product Card Redesign**: Upgraded product cards to feature a luxury `rounded-[1.8rem]` frame, `border-cream-200`, and elegant brand accent badges (NEW in brand red, FEATURED in soft butter-300), completely eliminating stale sky-blue visual fragments from other sections.
 - [x] **Local SEO Structured Data**: Integrated full, highly-accurate `LocalBusiness` (ClothingStore) JSON-LD structured schema in `app/layout.tsx`. Anchored geo-coordinates to the precise location of `SUBHASHINI MEDICARE` (Lat `24.7716151`, Lng `92.7923391`), aligned brand metadata, injected social linking, and successfully verified Next.js production compilations with Turbopack.
 - [x] **Real-Time Product Fetching (All Environments)**: Disabled Next.js static and server-side caching (set `revalidate: 0` and bypassed `unstable_cache`) for homepage `getCategoriesWithProducts` and `getLatestProducts` queries, ensuring that new products uploaded in Sanity immediately appear on the home page tabs and marquee across all environments.
+- [x] **Bug Fix Pass (Oct 2026)**: Hid the site Header on `/admin` so it no longer overlays Sanity Studio; fixed mobile menu icons (map → `/visit`, Instagram → profile); added missing `rahi-red-50/200/400/700` and `ink-500/700/800` tokens and corrected `ink-400` to spec `#8C7E70`; replaced leftover sky/emerald classes on About, Visit, Lookbook, Collections, and CategoryTabs; fixed marquee fallbacks (`/collections` link, `hero_bg.webp` image); made Footer category links CMS-driven; added branded `app/not-found.tsx`; aligned manifest colors to tokens.
+- [x] **Context Docs Sync**: Updated architecture, overview, UI, standards, and workflow docs to reflect Next.js 16, Sanity CMS, and Cormorant Garamond.
 
 ## In Progress
 - [ ] Analytics integration for WhatsApp conversion events.
 - [ ] Maps API production credentials setup.
 
 ## Next Up
-1. Implement CMS webhooks for cache revalidation.
-2. Final production build and testing.
+1. Implement CMS webhooks for cache revalidation (then restore caching on the home page instead of `revalidate: 0`).
+2. Request sized Sanity images in `ProductCard` (currently full-resolution originals).
+3. Make the hero `<h1>` present on mobile (currently `hidden md:block`).
+4. Final production build and testing.
 
 ## Open Questions
 - None.
