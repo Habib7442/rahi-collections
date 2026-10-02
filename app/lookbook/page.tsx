@@ -31,7 +31,7 @@ export default function LookbookPage() {
           </div>
           <div className="container mx-auto px-6 relative z-10 text-center">
             <h1 className="font-serif text-5xl md:text-7xl mb-6">Seasonal Lookbook</h1>
-            <p className="text-sky-100/80 max-w-2xl mx-auto text-xl font-accent">
+            <p className="text-cream-100/80 max-w-2xl mx-auto text-xl font-accent">
               Curated styles for Silchar&apos;s most vibrant celebrations. 
               Discover the Rahi&apos;s Collection aesthetic.
             </p>
@@ -49,15 +49,15 @@ export default function LookbookPage() {
                 &ldquo;Durga Puja 2026 Collection&rdquo;
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-                <div className="aspect-[3/4] bg-sky-50 rounded-3xl overflow-hidden relative group">
-                   <div className="absolute inset-0 flex items-center justify-center p-12 border-2 border-dashed border-sky-200 m-4 rounded-2xl">
+                <div className="aspect-[3/4] bg-cream-100 rounded-3xl overflow-hidden relative group">
+                   <div className="absolute inset-0 flex items-center justify-center p-12 border-2 border-dashed border-cream-200 m-4 rounded-2xl">
                       <p className="text-ink-400 font-serif italic text-center">
                         Our photographers are currently capturing the latest festive sarees.
                       </p>
                    </div>
                 </div>
-                <div className="aspect-[3/4] bg-sky-50 rounded-3xl overflow-hidden relative group">
-                   <div className="absolute inset-0 flex items-center justify-center p-12 border-2 border-dashed border-sky-200 m-4 rounded-2xl">
+                <div className="aspect-[3/4] bg-cream-100 rounded-3xl overflow-hidden relative group">
+                   <div className="absolute inset-0 flex items-center justify-center p-12 border-2 border-dashed border-cream-200 m-4 rounded-2xl">
                       <p className="text-ink-400 font-serif italic text-center">
                         Exclusive designer wear previewing shortly.
                       </p>
@@ -80,7 +80,7 @@ export default function LookbookPage() {
                 </Link>
                 <Link 
                   href="/collections" 
-                  className="bg-white text-ink-900 border-2 border-ink-900 px-8 py-4 rounded-full font-bold hover:bg-sky-50 transition-colors"
+                  className="bg-white text-ink-900 border-2 border-ink-900 px-8 py-4 rounded-full font-bold hover:bg-cream-100 transition-colors"
                 >
                   Browse Current Catalog
                 </Link>

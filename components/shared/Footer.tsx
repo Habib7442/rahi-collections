@@ -2,8 +2,24 @@ import Link from "next/link";
 import Image from "next/image";
 import { SITE } from "@/lib/seo";
 import { MapPin, Phone, Mail, Heart } from "lucide-react";
+import { getAllCategories } from "@/lib/sanity-queries";
+import { Category } from "@/lib/types";
 
-export default function Footer() {
+export default async function Footer() {
+  let categories: Pick<Category, "_id" | "title" | "slug">[] = [];
+  try {
+    categories = (await getAllCategories()) || [];
+  } catch (error) {
+    console.error("Failed to fetch footer categories:", error);
+  }
+
+  // Keep "Ladies Wear" first, matching the rest of the site
+  const sortedCategories = [...categories].sort((a, b) => {
+    if (a.slug === "ladies-wear") return -1;
+    if (b.slug === "ladies-wear") return 1;
+    return 0;
+  });
+
   return (
     <footer className="bg-ink-900 border-t border-white/5 pt-20 pb-10 text-white">
       <div className="container mx-auto px-6">
@@ -78,10 +94,17 @@ export default function Footer() {
               <span className="absolute -bottom-2 left-0 w-8 h-1 bg-rahi-red-500 rounded-full"></span>
             </h4>
             <ul className="flex flex-col gap-4">
-              <li><Link href="/collections/ladies-wear" className="text-white/60 hover:text-white hover:translate-x-1 transition-all inline-block">Ladies Wear</Link></li>
-              <li><Link href="/collections/gents-wear" className="text-white/60 hover:text-white hover:translate-x-1 transition-all inline-block">Gents Wear</Link></li>
-              <li><Link href="/collections/kids-wear" className="text-white/60 hover:text-white hover:translate-x-1 transition-all inline-block">Kids Wear</Link></li>
-              <li><Link href="/collections/jewellery" className="text-white/60 hover:text-white hover:translate-x-1 transition-all inline-block">Jewellery & Gifts</Link></li>
+              {sortedCategories.length > 0 ? (
+                sortedCategories.map((category) => (
+                  <li key={category._id}>
+                    <Link href={`/collections/${category.slug}`} className="text-white/60 hover:text-white hover:translate-x-1 transition-all inline-block">
+                      {category.title}
+                    </Link>
+                  </li>
+                ))
+              ) : (
+                <li><Link href="/collections" className="text-white/60 hover:text-white hover:translate-x-1 transition-all inline-block">All Collections</Link></li>
+              )}
             </ul>
           </div>
 

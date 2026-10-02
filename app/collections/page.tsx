@@ -83,7 +83,7 @@ export default async function CollectionsPage({ searchParams }: CollectionsPageP
                       "px-4 py-2 rounded-xl text-sm font-medium transition-all whitespace-nowrap",
                       !currentCategory 
                         ? "bg-ink-900 text-white shadow-lg shadow-ink-900/20" 
-                        : "bg-white text-ink-600 hover:bg-sky-100 border border-sky-100"
+                        : "bg-white text-ink-600 hover:bg-cream-100 border border-border"
                     )}
                   >
                     All Items

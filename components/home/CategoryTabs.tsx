@@ -127,7 +127,7 @@ function CategoryTabsContent({ categories }: CategoryTabsProps) {
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-16 mb-12 bg-white/50 rounded-3xl border border-dashed border-sky-200">
+                <div className="text-center py-16 mb-12 bg-white/50 rounded-3xl border border-dashed border-cream-200">
                   <p className="text-ink-500 font-accent text-lg">
                     New items arriving soon in this collection!
                   </p>

@@ -32,7 +32,7 @@ export default function AboutPage() {
                 </div>
                 {/* Decorative Elements */}
                 <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-rahi-red-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-                <div className="absolute -top-10 -left-10 w-72 h-72 bg-sky-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+                <div className="absolute -top-10 -left-10 w-72 h-72 bg-butter-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
                 <div className="absolute top-1/2 -translate-y-1/2 -right-6 h-32 w-32 border-4 border-rahi-red-100 rounded-full hidden md:block"></div>
               </div>
               
@@ -65,13 +65,13 @@ export default function AboutPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div>
                   <h3 className="text-rahi-red-400 font-bold uppercase tracking-widest text-xs mb-4">Empowerment</h3>
-                  <p className="text-sky-100/70 text-lg">
+                  <p className="text-cream-100/70 text-lg">
                     Susmita believes that fashion is a form of self-expression that empowers individuals to lead with confidence in their daily lives.
                   </p>
                 </div>
                 <div>
                   <h3 className="text-rahi-red-400 font-bold uppercase tracking-widest text-xs mb-4">Craftsmanship</h3>
-                  <p className="text-sky-100/70 text-lg">
+                  <p className="text-cream-100/70 text-lg">
                     We prioritize handpicked materials and artisans who respect the integrity of every thread, ensuring your garments last for generations.
                   </p>
                 </div>
@@ -85,7 +85,7 @@ export default function AboutPage() {
         </div>
 
         {/* Values Section */}
-        <div className="py-24 bg-sky-50">
+        <div className="py-24 bg-cream-100">
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="font-serif text-4xl text-ink-900 mb-4">Why Rahi&apos;s?</h2>
@@ -93,7 +93,7 @@ export default function AboutPage() {
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-              <div className="bg-white p-10 rounded-[2rem] shadow-sm border border-sky-100 hover:shadow-md transition-shadow">
+              <div className="bg-white p-10 rounded-[2rem] shadow-sm border border-cream-200 hover:shadow-md transition-shadow">
                 <div className="h-12 w-12 bg-rahi-red-50 rounded-2xl flex items-center justify-center mb-6">
                   <span className="text-2xl">✨</span>
                 </div>
@@ -103,8 +103,8 @@ export default function AboutPage() {
                 </p>
               </div>
               
-              <div className="bg-white p-10 rounded-[2rem] shadow-sm border border-sky-100 hover:shadow-md transition-shadow">
-                <div className="h-12 w-12 bg-sky-50 rounded-2xl flex items-center justify-center mb-6">
+              <div className="bg-white p-10 rounded-[2rem] shadow-sm border border-cream-200 hover:shadow-md transition-shadow">
+                <div className="h-12 w-12 bg-butter-100 rounded-2xl flex items-center justify-center mb-6">
                   <span className="text-2xl">👨‍👩‍👧‍👦</span>
                 </div>
                 <h3 className="font-serif text-2xl text-ink-900 mb-4">Family First</h3>
@@ -113,8 +113,8 @@ export default function AboutPage() {
                 </p>
               </div>
               
-              <div className="bg-white p-10 rounded-[2rem] shadow-sm border border-sky-100 hover:shadow-md transition-shadow">
-                <div className="h-12 w-12 bg-emerald-50 rounded-2xl flex items-center justify-center mb-6">
+              <div className="bg-white p-10 rounded-[2rem] shadow-sm border border-cream-200 hover:shadow-md transition-shadow">
+                <div className="h-12 w-12 bg-sage-400/20 rounded-2xl flex items-center justify-center mb-6">
                   <span className="text-2xl">💎</span>
                 </div>
                 <h3 className="font-serif text-2xl text-ink-900 mb-4">Local Trust</h3>

@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "Silchar's favourite family boutique - Sarees, Jewellery & more.",
     start_url: '/',
     display: 'standalone',
-    background_color: '#fffcf5', // Cream-50
-    theme_color: '#c41e3a', // rahi-red-500
+    background_color: '#FFFAF2', // cream-50
+    theme_color: '#C92340', // rahi-red-500
     icons: [
       {
         src: '/favicon.ico',

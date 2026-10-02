@@ -64,7 +64,7 @@ export default function TeaserMarquee({ products }: TeaserMarqueeProps) {
         >
           {marqueeItems.map((product: Product, idx: number) => {
             const productImg = product.images?.[0] || product.rawImage;
-            const fallbackImg = "/hero_bg.png";
+            const fallbackImg = "/hero_bg.webp";
             
             return (
               <div
@@ -98,7 +98,7 @@ export default function TeaserMarquee({ products }: TeaserMarqueeProps) {
                       {product.description ? product.description : "New season arrival"}
                     </span>
                     <Link
-                      href={`/collections/${product.category?.slug || ""}`}
+                      href={product.category?.slug ? `/collections/${product.category.slug}` : "/collections"}
                       className="text-xs font-bold text-rahi-red-500 hover:text-rahi-red-600 shrink-0 select-none ml-2"
                     >
                       Enquire →

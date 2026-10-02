@@ -46,8 +46,8 @@ export default function VisitPage() {
                     </div>
 
                     <div className="flex gap-4">
-                      <div className="h-10 w-10 bg-sky-50 rounded-full flex items-center justify-center flex-shrink-0">
-                        <span className="text-sky-600 font-bold">H</span>
+                      <div className="h-10 w-10 bg-butter-100 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span className="text-ink-700 font-bold">H</span>
                       </div>
                       <div>
                         <p className="font-bold text-ink-900 uppercase tracking-wider text-xs mb-1">Opening Hours</p>
@@ -57,8 +57,8 @@ export default function VisitPage() {
                     </div>
 
                     <div className="flex gap-4">
-                      <div className="h-10 w-10 bg-emerald-50 rounded-full flex items-center justify-center flex-shrink-0">
-                        <span className="text-emerald-600 font-bold">C</span>
+                      <div className="h-10 w-10 bg-sage-400/20 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span className="text-ink-700 font-bold">C</span>
                       </div>
                       <div>
                         <p className="font-bold text-ink-900 uppercase tracking-wider text-xs mb-1">Contact Us</p>
@@ -72,7 +72,7 @@ export default function VisitPage() {
                   </div>
                 </div>
 
-                <div className="bg-sky-50 p-8 rounded-3xl border border-sky-100 flex flex-col">
+                <div className="bg-cream-100 p-8 rounded-3xl border border-cream-200 flex flex-col">
                   <h3 className="font-serif text-2xl text-ink-900 mb-4">Driving Directions</h3>
                   <p className="text-ink-600 mb-6">
                     Our boutique is conveniently located in Ghungoor, near SUBHASHINI MEDICARE. 
@@ -82,7 +82,7 @@ export default function VisitPage() {
                     href="https://www.google.com/maps/place/SUBHASHINI+MEDICARE/@24.7716151,92.7923391,19.37z/data=!4m20!1m13!4m12!1m6!1m2!1s0x374e4f16316aaaab:0x99fea6ce904edb2!2sMadhab+Chandra+Das+College,+PV9H%2B88X,+Madhab+Chandra+Das+College,+Kabuganj+-+Sonai+Rd,+downtown,+Tulargram+Pt+II,+Assam+788119!2m2!1d92.8786065!2d24.7189414!1m3!2m2!1d92.7930333!2d24.7716418!3e9!3m5!1s0x374e491772674527:0xcd82c9e3f4a023b5!8m2!3d24.7716281!4d92.7932174!16s%2Fg%2F11gnq82gfm?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D" 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 bg-white text-ink-900 px-6 py-3 rounded-full font-bold shadow-sm hover:shadow-md transition-all border border-sky-200 mb-8 w-fit"
+                    className="inline-flex items-center justify-center gap-2 bg-white text-ink-900 px-6 py-3 rounded-full font-bold shadow-sm hover:shadow-md transition-all border border-cream-200 mb-8 w-fit"
                   >
                     Open in Google Maps
                   </Link>
@@ -108,7 +108,7 @@ export default function VisitPage() {
                     Our Storefront
                   </h3>
                   <div className="grid grid-cols-1 gap-8">
-                    <div className="group relative bg-sky-50 rounded-[2rem] overflow-hidden shadow-lg border-2 border-white transition-all duration-500 hover:shadow-2xl">
+                    <div className="group relative bg-cream-100 rounded-[2rem] overflow-hidden shadow-lg border-2 border-white transition-all duration-500 hover:shadow-2xl">
                       <div className="relative aspect-[4/3] w-full">
                         <Image 
                           src="/exterior_day.jpeg" 
@@ -119,11 +119,11 @@ export default function VisitPage() {
                           className="object-contain p-4"
                         />
                       </div>
-                      <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-1 rounded-full text-xs font-bold text-ink-900 shadow-sm border border-sky-100">
+                      <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-1 rounded-full text-xs font-bold text-ink-900 shadow-sm border border-cream-200">
                         Day View
                       </div>
                     </div>
-                    <div className="group relative bg-sky-50 rounded-[2rem] overflow-hidden shadow-lg border-2 border-white transition-all duration-500 hover:shadow-2xl">
+                    <div className="group relative bg-cream-100 rounded-[2rem] overflow-hidden shadow-lg border-2 border-white transition-all duration-500 hover:shadow-2xl">
                       <div className="relative aspect-[4/3] w-full">
                         <Image 
                           src="/exterior_night.jpeg" 

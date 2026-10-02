@@ -38,6 +38,9 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Sanity Studio renders full-screen at /admin and has its own navigation
+  if (pathname.startsWith("/admin")) return null;
+
   return (
     <header
       className={cn(
@@ -183,10 +186,23 @@ export default function Header() {
                   </a>
                 </Button>
                 <div className="flex items-center justify-center gap-8 text-ink-400 mt-6">
-                  <MapPin size={24} className="hover:text-rahi-red-500 transition-colors" />
-                  <Link href="/visit" onClick={() => setIsOpen(false)}>
-                    <Image src="/social-icons/instagram.png" alt="Instagram" width={24} height={24} className="opacity-50 hover:opacity-100 transition-opacity" />
+                  <Link
+                    href="/visit"
+                    onClick={() => setIsOpen(false)}
+                    aria-label="Visit our shop"
+                    className="p-2 hover:text-rahi-red-500 transition-colors"
+                  >
+                    <MapPin size={24} />
                   </Link>
+                  <a
+                    href={SITE.social.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Follow us on Instagram"
+                    className="p-2"
+                  >
+                    <Image src="/social-icons/instagram.png" alt="" width={24} height={24} className="opacity-50 hover:opacity-100 transition-opacity" />
+                  </a>
                 </div>
               </div>
             </SheetContent>
