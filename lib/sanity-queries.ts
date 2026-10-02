@@ -103,6 +103,23 @@ export async function getAllCategories() {
   return await client.fetch(query, {}, { next: { revalidate: 3600 } });
 }
 
+export async function getLookbookProducts(subCategorySlug: string, limit: number = 12) {
+  const query = `*[_type == "product" && subCategory->slug.current == $subCategorySlug && defined(images[0])]
+    | order(isFeatured desc, _createdAt desc) [0...$limit] {
+    _id,
+    name,
+    "slug": slug.current,
+    description,
+    images,
+    isNewArrival,
+    isFeatured
+  }`;
+
+  return await client.fetch(query, { subCategorySlug, limit }, {
+    next: { revalidate: 3600 }
+  });
+}
+
 const fetchLatestProducts = async (limit: number = 10) => {
   const query = `*[_type == "product"] | order(_createdAt desc) [0...$limit] {
     _id,
