@@ -16,7 +16,7 @@
 - `app/`: All routes and layouts.
   - `app/admin/[[...index]]/`: Embedded Sanity Studio (client-only). The site Header hides itself on `/admin`.
   - `app/not-found.tsx`: Branded 404 for `notFound()` calls and unmatched routes.
-  - `app/sitemap.ts`, `app/robots.ts`, `app/manifest.ts`: SEO/metadata routes.
+  - `app/sitemap.ts`, `app/robots.ts`, `app/manifest.ts`, `app/llms.txt/route.ts`: SEO/GEO metadata routes. All absolute URLs come from `SITE.url` in `lib/seo.ts`, which must match the Vercel primary domain (`www.`).
 - `components/ui/`: shadcn/ui base components (do not modify directly).
 - `components/shared/`: Site-wide components (Header, Footer, ProductCard, WhatsAppFloat).
 - `components/home/`: Home page sections (Hero, CategoryTabs, TeaserMarquee).

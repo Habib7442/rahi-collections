@@ -81,14 +81,25 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
-    "@context": "https://schema.org",
+  const storeJsonLd = {
     "@type": "ClothingStore",
+    "@id": `${SITE.url}/#store`,
     "name": SITE.name,
+    "description": SITE.description,
     "image": `${SITE.url}${SITE.ogImage}`,
-    "telephone": SITE.phones.join(", "),
+    "logo": `${SITE.url}${SITE.logo}`,
+    "telephone": SITE.phones[0].replace(/\s/g, ""),
+    "contactPoint": SITE.phones.map((phone) => ({
+      "@type": "ContactPoint",
+      "telephone": phone.replace(/\s/g, ""),
+      "contactType": "customer service",
+      "areaServed": "IN",
+      "availableLanguage": ["English", "Bengali", "Hindi"],
+    })),
     "email": SITE.email,
     "url": SITE.url,
+    "hasMap": SITE.mapsUrl,
+    "areaServed": ["Silchar", "Cachar", "Assam"],
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Near SUBHASHINI MEDICARE, Ghungoor",
@@ -99,8 +110,8 @@ export default function RootLayout({
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 24.7716151,
-      "longitude": 92.7923391
+      "latitude": SITE.geo.latitude,
+      "longitude": SITE.geo.longitude
     },
     "openingHoursSpecification": [
       {
@@ -119,6 +130,21 @@ export default function RootLayout({
     ],
     "priceRange": "₹",
     "sameAs": [...SITE.sameAs]
+  };
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      storeJsonLd,
+      {
+        "@type": "WebSite",
+        "@id": `${SITE.url}/#website`,
+        "url": SITE.url,
+        "name": SITE.name,
+        "inLanguage": "en-IN",
+        "publisher": { "@id": `${SITE.url}/#store` },
+      },
+    ],
   };
 
   return (

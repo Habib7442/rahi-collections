@@ -33,6 +33,7 @@
 - [x] **Context Docs Sync**: Updated architecture, overview, UI, standards, and workflow docs to reflect Next.js 16, Sanity CMS, and Cormorant Garamond.
 - [x] **Bulk Product Upload Script**: Added `scripts/bulk-upload-products.mjs` (manifest-driven, dry-run by default, skips existing slugs) and uploaded 15 sarees (21 images) to Ladies Wear → Sarees via `scripts/manifests/sarees-2026-09.json`.
 - [x] **Lookbook Live**: Replaced the "coming soon" placeholder on `/lookbook` with a CMS-driven "Puja Saree Edit" — editorial masonry grid of up to 12 sarees (featured first, then newest) via `getLookbookProducts`, per-saree WhatsApp enquiry links, and a visit-the-shop CTA. Falls back to a styled message if no products.
+- [x] **GEO/SEO Quick-Audit Fixes (Oct 2026)**: Switched `SITE.url` to `https://www.` (apex 301s to www, so canonicals/sitemap/schema were pointing at redirects — root cause of GSC "Page with redirect"); server-rendered the home category tabs (removed `useSearchParams` CSR bailout that hid products behind "Loading collections..."); added dynamic `/llms.txt`; upgraded JSON-LD to an `@graph` (ClothingStore with single telephone, ContactPoints, logo, hasMap, areaServed + WebSite) and added BreadcrumbList on category pages; refreshed outdated marquee copy to link to the live lookbook.
 
 ## In Progress
 - [ ] Analytics integration for WhatsApp conversion events.
@@ -42,7 +43,8 @@
 1. Implement CMS webhooks for cache revalidation (then restore caching on the home page instead of `revalidate: 0`).
 2. Request sized Sanity images in `ProductCard` (currently full-resolution originals).
 3. Make the hero `<h1>` present on mobile (currently `hidden md:block`).
-4. Final production build and testing.
+4. After deploy: resubmit `https://www.rahicollections.store/sitemap.xml` in Google Search Console and request re-indexing of key pages.
+5. Final production build and testing.
 
 ## Open Questions
 - None.

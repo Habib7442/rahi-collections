@@ -32,19 +32,21 @@ export default function TeaserMarquee({ products }: TeaserMarqueeProps) {
           viewport={{ once: true }}
           className="font-serif text-3xl md:text-5xl text-ink-900 mb-4 italic tracking-tight"
         >
-          &ldquo;New collections arriving soon...&rdquo;
+          &ldquo;Fresh arrivals for the festive season&rdquo;
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-rahi-red-600 font-accent text-2xl lg:text-3xl font-semibold mb-2"
+          className="font-accent text-2xl lg:text-3xl font-semibold mb-2"
         >
-          Stay tuned for Durga Puja 2026 Lookbook
+          <Link href="/lookbook" className="text-rahi-red-600 hover:text-rahi-red-500 transition-colors">
+            Our Durga Puja 2026 Lookbook is live →
+          </Link>
         </motion.p>
         <p className="text-ink-600 text-sm tracking-widest uppercase font-medium">
-          A sneak peek of our latest arrivals
+          The latest pieces in our Ghungoor, Silchar boutique
         </p>
       </div>
 

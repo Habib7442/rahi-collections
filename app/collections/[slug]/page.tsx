@@ -84,9 +84,32 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
 
   const totalPages = Math.ceil(total / pageSize);
   const subCategoryQueryParam = subCategorySlug ? `&subcategory=${subCategorySlug}` : "";
+  const activeSubCategory = subCategories.find((sub) => sub.slug === subCategorySlug);
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE.url },
+      { "@type": "ListItem", "position": 2, "name": "Collections", "item": `${SITE.url}/collections` },
+      { "@type": "ListItem", "position": 3, "name": category.title, "item": `${SITE.url}/collections/${slug}` },
+      ...(activeSubCategory
+        ? [{
+            "@type": "ListItem",
+            "position": 4,
+            "name": activeSubCategory.title,
+            "item": `${SITE.url}/collections/${slug}?subcategory=${activeSubCategory.slug}`,
+          }]
+        : []),
+    ],
+  };
 
   return (
     <div className="flex flex-col min-h-screen pt-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <main className="flex-grow pb-20">
         {/* Header */}
         <div className="bg-background py-16 border-b border-border">

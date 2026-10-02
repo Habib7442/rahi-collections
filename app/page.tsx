@@ -5,7 +5,12 @@ import CategoryTabs from "@/components/home/CategoryTabs";
 import TeaserMarquee from "@/components/home/TeaserMarquee";
 import { getCategoriesWithProducts, getLatestProducts } from "@/lib/sanity-queries";
 
-export default async function Home() {
+interface HomeProps {
+  searchParams: Promise<{ category?: string }>;
+}
+
+export default async function Home({ searchParams }: HomeProps) {
+  const { category: initialCategory } = await searchParams;
   let categories = [];
   let latestProducts = [];
   
@@ -27,7 +32,7 @@ export default async function Home() {
         <Hero />
         
         {/* Dynamic Collections Section */}
-        <CategoryTabs categories={categories} />
+        <CategoryTabs categories={categories} initialCategory={initialCategory} />
 
         {/* Dynamic Teaser Marquee Section (Continuous Scroll Left-to-Right) */}
         <TeaserMarquee products={latestProducts} />

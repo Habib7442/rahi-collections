@@ -2,7 +2,8 @@ export const SITE = {
   name: "Rahi's Collection",
   tagline: "Clothes, jewellery & stationery for the whole family",
   description: "Silchar's beloved family boutique in Ghungoor. Sarees, kurtis, gents wear, kids wear, imitation jewellery, and stationery — all under one roof. Open Mon–Sat, 10 AM–8:30 PM.",
-  url: "https://rahicollections.store",
+  // Must match the primary domain on Vercel (apex 301-redirects to www)
+  url: "https://www.rahicollections.store",
   address: "Near SUBHASHINI MEDICARE, Ghungoor, Silchar 788014, Assam, India",
   phones: ["+91 87218 73064", "+91 86381 88525"],
   whatsapp: "https://wa.me/918721873064?text=Hi%20Rahi's%20Collection!",
@@ -18,6 +19,9 @@ export const SITE = {
     "https://facebook.com/rahicollections"
   ],
   ogImage: "/og-image.jpg",
+  logo: "/logo.png",
+  geo: { latitude: 24.7716151, longitude: 92.7923391 },
+  mapsUrl: "https://www.google.com/maps/search/?api=1&query=24.7716151,92.7923391",
   keywords: [
     "clothes shop in Silchar",
     "saree shop Silchar",

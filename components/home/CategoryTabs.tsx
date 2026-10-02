@@ -6,17 +6,18 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-import { useSearchParams, usePathname } from "next/navigation";
-import { Suspense, useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 import { Category } from "@/lib/types";
 
 interface CategoryTabsProps {
   categories: Category[];
+  // Read on the server so the active tab's products are in the initial HTML
+  initialCategory?: string;
 }
 
-function CategoryTabsContent({ categories }: CategoryTabsProps) {
-  const searchParams = useSearchParams();
+export default function CategoryTabs({ categories, initialCategory }: CategoryTabsProps) {
   const pathname = usePathname();
 
   // Avoid mutating the original prop array and define it before hooks
@@ -29,21 +30,12 @@ function CategoryTabsContent({ categories }: CategoryTabsProps) {
     : [];
 
   const defaultTab = activeCategories.length > 0 ? activeCategories[0].slug : "";
-  const categoryParam = searchParams.get("category");
-  const targetTab = activeCategories.some(cat => cat.slug === categoryParam)
-    ? (categoryParam as string)
+  const targetTab = activeCategories.some(cat => cat.slug === initialCategory)
+    ? (initialCategory as string)
     : defaultTab;
 
   // Use local state for instant tab switching
   const [currentTab, setCurrentTab] = useState(targetTab);
-
-  // Sync tab with URL search parameter when navigating back/forward
-  useEffect(() => {
-    const frameId = requestAnimationFrame(() => {
-      setCurrentTab(targetTab);
-    });
-    return () => cancelAnimationFrame(frameId);
-  }, [targetTab]);
 
   if (!categories || categories.length === 0) return null;
 
@@ -150,13 +142,5 @@ function CategoryTabsContent({ categories }: CategoryTabsProps) {
 
       </div>
     </section>
-  );
-}
-
-export default function CategoryTabs(props: CategoryTabsProps) {
-  return (
-    <Suspense fallback={<div className="h-96 flex items-center justify-center">Loading collections...</div>}>
-      <CategoryTabsContent {...props} />
-    </Suspense>
   );
 }
